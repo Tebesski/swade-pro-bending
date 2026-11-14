@@ -1,0 +1,11 @@
+.avatar-stance-dialog .form-footer {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.avatar-captain {
+  flex: none;
+  margin-inline-end: 0.4rem;
+  font-size: var(--font-size-11);
+  opacity: 0.85;
+}

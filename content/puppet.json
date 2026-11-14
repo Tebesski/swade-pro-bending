@@ -1,0 +1,111 @@
+{
+  "_id": "31048c14215e4a00",
+  "name": "Puppet",
+  "type": "power",
+  "img": "icons/magic/control/control-influence-puppet.webp",
+  "folder": "c29745f15a061047",
+  "system": {
+    "actions": {
+      "additional": {
+        "RzdDBDp6": {
+          "dice": null,
+          "isHeavyWeapon": false,
+          "macroActor": "default",
+          "modifier": "",
+          "name": "Resist",
+          "override": "spirit",
+          "resourcesUsed": null,
+          "type": "resist",
+          "uuid": null
+        }
+      },
+      "dmgMod": "",
+      "trait": "Bending",
+      "traitMod": ""
+    },
+    "activities": [],
+    "additionalStats": {},
+    "ap": 0,
+    "arcane": "Waterbending",
+    "bonusDamageDice": 1,
+    "bonusDamageDie": 6,
+    "choiceSets": [],
+    "damage": "",
+    "description": "<p><em>Puppet </em>is an @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03traitrolls0000]{opposed roll} of the character&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor05powers.JournalEntryPage.05arcanebackgr00]{arcane skill} versus the target&rsquo;s @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01traits00000000]{Spirit}. With @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03traitrolls0000]{success}, the victim automatically obeys commands that don&rsquo;t directly harm himself or those he cares about.</p>\n<p>With a @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03traitrolls0000#trait-rolls]{raise}, the target is completely controlled, but gets an automatic @UUID[Compendium.swade-core-rules.swade-rules.swadecor01charac.JournalEntryPage.01traits00000000]{Spirit} roll as a @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03actions0000000]{free action} to avoid directly harming himself or those he cares about. If the <em>puppet</em>&rsquo;s resistance @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03traitrolls0000]{succeeds}, he doesn&rsquo;t carry out that particular command but doesn&rsquo;t otherwise resist his master. With a @UUID[Compendium.swade-core-rules.swade-rules.JournalEntry.swadecor03rules0.JournalEntryPage.03traitrolls0000#trait-rolls]{raise}, he breaks the controller&rsquo;s hold and the power ends.<br /></p>\n<p>Commands are general, such as &ldquo;attack that person&rdquo; or &ldquo;open that door.&rdquo; The controller doesn&rsquo;t get to dictate how many @UUID[Compendium.swade-core-rules.swade-rules.swadecor03rules0.JournalEntryPage.03actions0000000]{actions} the victim uses in a turn, whether or not he uses his @Compendium[swade-core-rules.swade-edges.Sweep]{Sweep} Edge, etc.</p>",
+    "duration": "5",
+    "favorite": false,
+    "innate": false,
+    "modifiers": [],
+    "notes": "",
+    "pp": 3,
+    "range": "@sma",
+    "rank": "Veteran",
+    "source": "SWADE Core Rules",
+    "swid": "puppet",
+    "templates": {
+      "cone": false,
+      "large": false,
+      "medium": false,
+      "scone": false,
+      "small": false,
+      "stream": false
+    },
+    "trapping": "Glowing eyes, trance-like state, a swinging pocket watch, voodoo dolls."
+  },
+  "effects": [],
+  "flags": {
+    "swade-pro-bending": {
+      "key": "puppet",
+      "contentRevision": 2,
+      "technique": true,
+      "element": "water",
+      "mode": "targets",
+      "sourcePenalty": "-2",
+      "areaOptions": false
+    },
+    "swade-better-effects": {
+      "tags": [
+        "bending-technique",
+        "offensive-technique",
+        "water",
+        "bloodbending"
+      ]
+    },
+    "swade-better-powers": {
+      "powerModifiers": [
+        {
+          "id": "additional-recipients",
+          "name": "Additional Recipients",
+          "description": "<p>Spend 2 additional Power Points per extra recipient. Resolve Spirit resistance separately for each target.</p>",
+          "options": [
+            {
+              "id": "recipients-1",
+              "label": "1 additional",
+              "cost": 2
+            },
+            {
+              "id": "recipients-2",
+              "label": "2 additional",
+              "cost": 4
+            },
+            {
+              "id": "recipients-3",
+              "label": "3 additional",
+              "cost": 6
+            },
+            {
+              "id": "recipients-4",
+              "label": "4 additional",
+              "cost": 8
+            },
+            {
+              "id": "recipients-5",
+              "label": "5 additional",
+              "cost": 10
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

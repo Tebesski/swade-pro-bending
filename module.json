@@ -1,0 +1,118 @@
+{
+   "id": "swade-pro-bending",
+   "title": "SWADE Pro-Bending",
+   "description": "Avatar setting Techniques, Nations, bending backgrounds, stances, Edges, Pro-Bending teams, and table tools.",
+   "version": "#{VERSION}#",
+   "compatibility": { "minimum": "14", "verified": "14", "maximum": "14" },
+   "esmodules": ["scripts/main.mjs"],
+   "styles": ["styles/stance.css"],
+   "relationships": {
+      "systems": [
+         {
+            "id": "swade",
+            "type": "system",
+            "compatibility": { "minimum": "6.0.4" }
+         }
+      ],
+      "requires": [
+         { "id": "swade-better-setting", "type": "module" },
+         { "id": "swade-better-effects", "type": "module" },
+         { "id": "swade-better-templates", "type": "module" },
+         { "id": "swade-better-powers", "type": "module" }
+      ]
+   },
+   "packs": [
+      {
+         "name": "techniques",
+         "label": "Techniques",
+         "path": "packs/techniques",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "backgrounds",
+         "label": "Bending Backgrounds",
+         "path": "packs/backgrounds",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "stances",
+         "label": "Bending Stances",
+         "path": "packs/stances",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "edges",
+         "label": "Avatar Edges",
+         "path": "packs/edges",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "nations",
+         "label": "Nations",
+         "path": "packs/nations",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "bending-kit",
+         "label": "Skills and Elemental Weapons",
+         "path": "packs/bending-kit",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "effects",
+         "label": "Avatar Effects",
+         "path": "packs/effects",
+         "type": "Item",
+         "system": "swade"
+      },
+      {
+         "name": "macros",
+         "label": "Avatar Macros",
+         "path": "packs/macros",
+         "type": "Macro",
+         "system": "swade"
+      },
+      {
+         "name": "rules",
+         "label": "Avatar Rules",
+         "path": "packs/rules",
+         "type": "JournalEntry",
+         "system": "swade"
+      },
+      {
+         "name": "pro-benders",
+         "label": "Pro-Benders & Republic City",
+         "path": "packs/pro-benders",
+         "type": "Actor",
+         "system": "swade"
+      }
+   ],
+   "packFolders": [
+      {
+         "name": "Avatar: Pro-Bending",
+         "sorting": "m",
+         "color": "#335463",
+         "packs": [
+            "rules",
+            "backgrounds",
+            "techniques",
+            "stances",
+            "edges",
+            "nations",
+            "macros",
+            "effects",
+            "bending-kit",
+            "pro-benders"
+         ]
+      }
+   ],
+   "url": "#{URL}#",
+   "manifest": "#{MANIFEST}#",
+   "download": "#{DOWNLOAD}#"
+}

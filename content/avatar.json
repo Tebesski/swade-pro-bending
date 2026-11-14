@@ -1,0 +1,1771 @@
+{
+  "powers": [
+    {
+      "group": "Universal",
+      "name": "Knacks",
+      "rank": "Novice",
+      "penalty": "0",
+      "range": "Spirit",
+      "duration": "See text",
+      "html": "<p>Benders can often use their abilities for most mundane purposes. Such basic Bendings are collectively called “knacks.” An Earth Bender makes a couple of pebbles levitate. A Fire Bender lights a candle with a snap of the fingers. A Water Bender refills their flask with some water from the pond.</p>\n<p>A Bender may cast a knack for free without making any rolls. It cannot cause any damage (at least directly).</p>",
+      "mods": []
+    },
+    {
+      "group": "Universal",
+      "name": "Basic Elemental Manipulation",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit * 2",
+      "duration": "See text",
+      "html": "<p>A set of basic elemental Techniques. Upon activation, the bender may choose one of the following effects:</p>\n<ul>\n<li><p><strong>Move:</strong> The bender may move loose element or hold it in place up to the bender’s Bending skill in any direction. They can move or hold as much as (1/2 of their Bending skill * 10) kg of material (double that amount on a raise), including any extra weight (such as people).</p></li>\n<li><p><strong>Sculpt:</strong> Reshape or extend up to 4 cubic metres (2\") of an element into a rough shape of your choice.</p></li>\n<li><p><strong>Weaken:</strong> Weaken the bonds that hold the element together. If your target has Hardness, you can affect one contiguous object, up to a 1-metre cube (1\"), halving the Hardness, rounding it down (to a minimum of 0). If the target lacks Hardness, it gains Weakness to physical damage. It has other, more mundane applications, such as snuffing out the flames if you're a firebender.</p></li>\n<li><p><strong>Regulate:</strong> Increase or decrease the temperature of some material.</p></li>\n<li><p><strong>Cushion:</strong> With the power of your element, you mitigate the falling damage. When you're falling or thrown forcefully, roll your Bending skill (with -2 if you were thrown forcefully). On success, you mitigate half of falling damage and can then make an Agility roll to avoid falling prone. On a raise, you mitigate the damage fully and avoid falling prone automatically.</p></li>\n</ul>",
+      "mods": [
+        {
+          "name": "Strong",
+          "cost": "-1",
+          "description": "<p>Double the maximum allowed weight or volume of manipulated element.</p>",
+          "epic": false
+        },
+        {
+          "name": "Reaction",
+          "cost": "-2",
+          "description": "<p>Use Elemental Manipulation as a reaction on danger (e.g. to stop a rock falling on your head)</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Advanced Elemental Manipulation",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit * 2",
+      "duration": "See text",
+      "html": "<p>A set of advanced elemental Techniques. Upon activation, the bender may choose one of the following effects:</p>\n<ul>\n<li><p><strong>Air Walk:</strong> Until the end of their current turn, the bender walks in the air, on horizontal surfaces or even upside down at normal pace, using their element as support.</p></li>\n<li><p><strong>Elemental Surf:</strong> The bender invokes a surf under their feet to traverse their element quickly: it may be a lava surf, a sand surf, an ice surf on the water or something similar. The bender increases their Pace by 6\" and their running pace by 1 die. Running does not impose any penalties. If the bender gets involved into any action that requires concentration, they must make a free Bending roll to sustain their Elemental Surf at the beginning on each turn and as a free reaction every time they receive damage, or lose it. They automatically lose it if they are knocked Prone.</p></li>\n<li><p><strong>Elemental Stride:</strong> You can walk at ease on your element, ignoring any Difficult Ground or and corresponding hazards (lava/coals/water/quicksand walk, etc.) Lasts for 1 hour.</p></li>\n<li><p><strong>Elemental Protection:</strong> For 1 hour, you protect yourself from the hazards of your elements, such as hot or cold weather protection, underwater breathing, etc. providing yourself with +4 to Vigour rolls to resist the hazards, if applicable.</p></li>\n<li><p><strong>Move:</strong> The bender may move loose element or hold it in place up to the bender’s (Bending * 2) in any direction. They can move or hold as much as their Bending skill * 10 kg of material (double that amount on a raise), including any extra weight (such as people).</p></li>\n<li><p><strong>Sculpt:</strong> Reshape or extend up to 8 cubic metres (4\") of an element into a rough shape of your choice.</p></li>\n<li><p><strong>Weaken:</strong> You now can affect a creature made out of the element (opposed by Vigour), and the affected material volume is increase to up to 2\".</p></li>\n</ul>",
+      "mods": [
+        {
+          "name": "Elemental Transport",
+          "cost": "-1",
+          "description": "<p>Your Elemental Surf can seat a passenger.</p>",
+          "epic": false
+        },
+        {
+          "name": "Reaction",
+          "cost": "-2",
+          "description": "<p>Use Advanced Elemental Manipulation as a reaction on danger (e.g. to stop a rock falling on your head)</p>",
+          "epic": false
+        },
+        {
+          "name": "Prolonged Walk",
+          "cost": "-1",
+          "description": "<p>The bender can hold themselves in a gained position until the end of their next turn.</p>",
+          "epic": false
+        },
+        {
+          "name": "Communal Protection",
+          "cost": "-1",
+          "description": "<p>You can extend Elemental Protection on another person with a Range of your Spirit, but you must constantly concentrate on it and be within the Range of your target.</p>",
+          "epic": false
+        },
+        {
+          "name": "Area Protection",
+          "cost": "-1 / -2",
+          "description": "<p>You can extend Elemental Protection in a Medium Blast Template (Large for +4) around yourself.</p>",
+          "epic": false
+        },
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>Double the maximum allowed weight or volume of manipulated element.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Elemental Maneuver",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "Instant",
+      "html": "<p>You can try to knock prone or disarm your opponent. The target must succeed at Agility roll or suffer one of the consequences:</p>\n<ul>\n<li><p>Disarmed (see Savage Worlds disarm rules)</p></li>\n<li><p>Distracted or Vulnerable for 1 round (also knocked prone on a raise)</p></li>\n</ul>\n<p>You can also use this power as a reaction to move yourself out of the harms way.</p>",
+      "mods": []
+    },
+    {
+      "group": "Universal",
+      "name": "Deadly Elements",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Self",
+      "duration": "5",
+      "html": "<p>Increase the damage of your Elemental Hurl and Elemental Assault by 2 (4 on a raise).</p>",
+      "mods": [
+        {
+          "name": "Enhance",
+          "cost": "-2",
+          "description": "<p>Add one quality to your Elemental Hurl or Elemental Assault: reach (reach +2 on a raise), AP +1 (+2 on a raise), heavy weapon</p>",
+          "epic": false
+        },
+        {
+          "name": "Duration",
+          "cost": "-2",
+          "description": "<p>Increase the Duration to 1 minute.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Analyse Foe",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Self",
+      "duration": "3",
+      "trapping": "Chakra reading",
+      "html": "<p>Designate the target. If their chakra is not concealed, on a success, you gain a +1 bonus to Trait rolls to directly affect the target, as you could see the flow of chakra through the target's body. On a raise, you also learn of a single Immunity, Invulnerability or Weakness of the target (if one exists).</p>",
+      "mods": [
+        {
+          "name": "Duration",
+          "cost": "-2",
+          "description": "<p>Increase the duration to 6.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Barrier",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "5",
+      "html": "<p>Barrier creates a straight wall 5″ (10 yards) long and 1″ (two yards) tall, of your element that conforms to the surface it’s cast upon. Double the length with a raise. Thickness varies depending on what the wall is made of, but is usually a few inches.</p>\n<p>Depending on the trappings, the wall may have a Hardness (increased by 2 with a raise) or deal 2d4 damage, as well as it can be material or immaterial, providing different types of cover.</p>",
+      "mods": [
+        {
+          "name": "Bridge",
+          "cost": "-",
+          "description": "<p>The barrier is horizontal and can be used as a bridge, a platform, or a roof. It is up to 5” (10 yards) long and 1” (two yards) wide. A Bridge cannot be Immaterial.</p>",
+          "epic": false
+        },
+        {
+          "name": "Door",
+          "cost": "-1",
+          "description": "<p>The bender can open (or close) a passage in the barrier as a limited free action. Alternatively, the cast may choose a passphrase or key gesture that others may use to open a door as a limited free action. The door remains open until the caster or a key-user closes it.</p>",
+          "epic": false
+        },
+        {
+          "name": "Deadly",
+          "cost": "-2",
+          "description": "<p>Increase barrier's damage to 2d6.</p>",
+          "epic": false
+        },
+        {
+          "name": "Hardened",
+          "cost": "-1",
+          "description": "<p>Increase the Hardness by 2.</p>",
+          "epic": false
+        },
+        {
+          "name": "Shaped",
+          "cost": "-1",
+          "description": "<p>The barrier forms a circle, square, or rectangle. It can’t have a roof or floor, and can’t Bind or Entangle anything within (use the entangle power for that).</p>",
+          "epic": false
+        },
+        {
+          "name": "Size",
+          "cost": "-1",
+          "description": "<p>The length and height of the barrier doubles.</p>",
+          "epic": false
+        },
+        {
+          "name": "Stalwart",
+          "cost": "-2",
+          "description": "<p>The barrier gains +12 Heavy Armour.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Awareness",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Self",
+      "duration": "5",
+      "trapping": "Focus third eye chakra, whistles a subsonic sound that reverberates back like sonar, imprecise seismic sense",
+      "html": "<p>You suffer no penalties due to gloom lighting, fog or other minor obscuration, negating light cover within (Bending / 2) * 10 feet. Medium or Heavy cover are still effective against you.</p>",
+      "mods": [
+        {
+          "name": "Strong",
+          "cost": "-1 / -3",
+          "description": "<p>Negate Medium (+2) or Heavy (+4) obscuration</p>",
+          "epic": false
+        },
+        {
+          "name": "Duration",
+          "cost": "-1",
+          "description": "<p>Increase Duration to 1 minute</p>",
+          "epic": false
+        },
+        {
+          "name": "Range",
+          "cost": "-1",
+          "description": "<p>Double the range</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Relief",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Self",
+      "trappings": "Chakra manipulation, Bloodbending",
+      "html": "<p><em>Relief</em> allows the caster to recover from a negative condition or the effects of Fatigue.</p>\n<ul>\n<li><p><strong>Recover:</strong> The caster removes one of the following conditions: Shaken, Distracted, or Vulnerable. A raise on the arcane skill roll removes two conditions. If affecting more than one target (via the Additional Recipients modifier), the caster may choose which condition(s) to remove for each ally.<br />\n<em>Relief</em> can’t remove conditions caused by ongoing effects (Bound or Entangled, Stunned, etc.) unless the source of the effect is removed.</p></li>\n<li><p><strong>Numb:</strong> This option dulls the target's pain, reducing their combined penalty from Wounds and Fatigue by one point on a success, or two points on a raise. This masking effect lasts for exactly one hour and does not stack. It is important to note that this does not actually heal the Wounds or cure the Fatigue; it only suppresses the mechanical penalties. If a character accrues enough damage or exhaustion to become Incapacitated, they will still fall Incapacitated as normal.</p></li>\n</ul>",
+      "mods": [
+        {
+          "name": "Guidance",
+          "cost": "-1",
+          "description": "<p>The bender can extend the Technique to another person, delivering it with a Touch.</p>",
+          "epic": false
+        },
+        {
+          "name": "Stunned",
+          "cost": "-2",
+          "description": "<p>When using the \"Recover\" application, spending one extra point allows the bender to fully cure the Stunned condition.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Boost/Lower Trait",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Self",
+      "trappings": "Chakra manipulation, Elemental imbuing, Bloodbending",
+      "html": "<p>Boosting an your Trait increases the selected Trait one die type, or two with a raise. This can raise a Trait above its normal maximum. Lowering an enemy’s Trait has a Duration of Instant and lowers the selected attribute or skill a die type with success, or two with a raise (to a minimum of d4). A victim automatically tries to shake off the effect with a Vigour roll as a free action at the end of their following turn. Success improves the effect one die type, and a raise removes the effect entirely.</p>\n<p>Additional castings don’t stack on a single Trait (take the highest) but may affect different Traits.</p>\n<p><strong>Derived Statistics:</strong> If Fighting or Vigour are affected, Parry and Toughness will adjust accordingly. The same is true of any other statistics derived from a Trait.</p>",
+      "mods": [
+        {
+          "name": "Intrusive",
+          "cost": "-1",
+          "description": "<p>The bender can extend the Technique to another person, delivering it with a Touch.</p>",
+          "epic": false
+        },
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>Lower Trait only. The Vigour roll to shake off the effect is made at −2.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Blind",
+      "rank": "Novice",
+      "penalty": "-2",
+      "range": "Spirit",
+      "duration": "Instant",
+      "trappings": "Bright flash of light, dust in eyes, salty water",
+      "html": "<p>Those affected by this Technique suffer blurred vision or near-complete blindness with a raise.</p>\n<p>Success means the victim suffers a −2 penalty to all actions involving sight, or −4 with a raise.</p>\n<p>The victim automatically tries to shake off the effect with a Vigor roll as a free action at the end of his following turns. Success removes 2 points of penalties, and a raise removes the effect entirely.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1 / -3",
+          "description": "<p>The power affects everyone in a Medium Blast Template for +2 points, or a Large Blast Template for +3.</p>",
+          "epic": false
+        },
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>The Vigour roll to shake off the effect is made at ‐2.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Manipulate Emotions",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Touch",
+      "trappings": "Chakra manipulation",
+      "html": "<p>You manipulate chakra to control creature's emotions.</p>\n<ul>\n<li><p><strong>Calm:</strong> You bring calm to an otherwise disturbed target’s mind. On a success, it calms the target of strong emotions like panic, anger, despair, and distress, and on a raise it even removes a single aggressive effect such as Fury or Berserk. The target can choose to resist the effects. If so, the power is opposed by the target’s Spirit.</p></li>\n<li><p><strong>Anger:</strong> You bring turmoil to the target’s heart. On a success, her Reaction Level (see Persuasion skill in Savage Worlds) towards everyone is one step worse than it would normally be. Every minute, if she wishes to shake off the power’s effects, she must succeed a Smarts roll at –2. If she engages in, or is engaged in, a fight while angry, she is affected by Fury (see the Berserk Edge) and suffering a Wound or being Shaken from physical damage, makes her go full Berserk (she can’t avoid it). However, once Berserk, she can make Smarts rolls (at –2) to end the rage. The anger effects end when the rage ends (this can also happen with the standard Berserk exhaustion).</p></li>\n<li><p><strong>Fear:</strong> This power causes overwhelming dread and horror. The target makes a Fear check. Extras who fail are Panicked and Wild Cards roll on the Fear Table. If the power is cast with a raise, the Fear roll is at –2 and Wild Cards add +2 to Fear Table results.</p></li>\n<li><p><strong>Mind Wipe (Veteran):</strong> Remove a target’s memories, a terrible violation in most civilized societies. The power is opposed by a victim’s Smarts and requires a full hour of mental struggle. The victim must be conscious during this time, so if not restrained they can simply move out of Range. If successful, the victim forgets a single event (up to about 30 minutes of time). A raise removes a complex memory of several hours. If the defender wins, the caster cannot affect them with mind wipe for 24 hours. (Others may reattempt the power, however.) The memory remains missing, but strong evidence that challenges its “logic” allows a Smarts roll at −2 to remember fragments determined by the GM.</p></li>\n</ul>",
+      "mods": [
+        {
+          "name": "Mind Wipe",
+          "cost": "Veteran",
+          "description": "<p>Remove a target’s memories, a terrible violation in most civilized societies. The power is opposed by a victim’s Smarts and requires a full hour of mental struggle. The victim must be conscious during this time, so if not restrained they can simply move out of Range. If successful, the victim forgets a single event (up to about 30 minutes of time). A raise removes a complex memory of several hours. If the defender wins, the caster cannot affect them with mind wipe for 24 hours. (Others may reattempt the power, however.) The memory remains missing, but strong evidence that challenges its “logic” allows a Smarts roll at −2 to remember fragments determined by the GM.</p>",
+          "epic": false
+        },
+        {
+          "name": "Relaxed",
+          "cost": "-1 / -2",
+          "description": "<p>The Duration of this power is raised to 5 minutes (or 1 hour for -2 penalty). The target is so calm she can’t enter strongly aggressive states (like Berserk or Wild Attacks).</p>",
+          "epic": false
+        },
+        {
+          "name": "Serenity",
+          "cost": "-1",
+          "description": "<p>When activated, the power also heals effects from the Fear Table (including Phobia and Heart Attack), or coming from similar strong emotions, that are less than or one hour old.</p>",
+          "epic": false
+        },
+        {
+          "name": "Edit",
+          "cost": "-2",
+          "description": "<p>Instead of wiping the memory, the caster edits it as they see fit.</p>",
+          "epic": false
+        },
+        {
+          "name": "Greater Mind Wipe",
+          "cost": "-2",
+          "description": "<p>The effect completely removes a single event, person, place, thing, etc., from the victim’s memory.</p>",
+          "epic": true
+        },
+        {
+          "name": "Erasure",
+          "cost": "-6",
+          "description": "<p>The bender may attempt to wipe the victim’s mind clean of all memories. This is accomplished by completing a successful Challenging Dramatic Task (or Difficult Dramatic Task for Wild Cards), where the caster’s Arcane Skill rolls are opposed by the target’s Spirit (with bonuses or penalties as the GM sees fit). If the caster fails, they become Exhausted. With a success the caster is only Fatigued and the victim -- though they retain all skills and abilities -- completely forgets who they are or any details of their previous life. The 'Edit' Power Modifier costs +5 Power Points when used in tandem with Exalted Mind Wipe.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Impede",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "5",
+      "html": "<p>Impede changes the shape or nature of a piece of terrain into something harder to traverse. Place a Medium Blast Template in Range. This area is now Difficult Ground.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-2",
+          "description": "<p>The bender can reduce the area to only cover a Small Blast Template or enlarge the area to cover a Large Blast Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Duration",
+          "cost": "-1",
+          "description": "<p>Increase the duration to 1 minute</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Launch",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit",
+      "html": "<p>The target (a creature or vehicle up to Size 2) immediately moves via a horizontal or vertical leap with doubled distance (or instantly moves double its Top Speed/Pace if a craft such as a sand-sailer or skiff). This movement does not trigger Free Attacks. An unwilling target resists with an opposed Agility roll.</p>",
+      "mods": [
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>Triple the leap distance.</p>",
+          "epic": false
+        },
+        {
+          "name": "Destabilising",
+          "cost": "-1",
+          "description": "<p>Creatures adjacent to you when you perform and finish the leap must make a Strength roll or be knocked prone.</p>",
+          "epic": false
+        },
+        {
+          "name": "Heavy Craft",
+          "cost": "-1 to -3",
+          "description": "<p>Increases the maximum vehicle Size allowed: -1 for Size 3–4, -2 for Size 5–7, or -3 for Size 8+.</p>",
+          "epic": false
+        },
+        {
+          "name": "Damaging",
+          "cost": "-1",
+          "description": "<p>You deal 2d4 damage to the launched target.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Tremor",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit",
+      "html": "<p>This Technique shakes an area, threatening those caught within to be knocked to the ground. On a success, the bender affects a Medium Blast Template anywhere in Range. Targets in the area must succeed an opposed Agility roll or become Vulnerable. If you raised, the targets are also knocked Prone (and Shaken, if the activation roll was a raise).</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1",
+          "description": "<p>The bender may choose to reduce the affected Area to a Small Blast Template or to increase it to a Large Blast Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Cone",
+          "cost": "-1",
+          "description": "<p>The power affects a Cone Template emanating from the bender.</p>",
+          "epic": false
+        },
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>The Agility rolls suffer a –2 penalty.</p>",
+          "epic": false
+        },
+        {
+          "name": "Quake",
+          "cost": "-2",
+          "description": "<p>In addition to other effects, structures within the template take 2d6 Heavy Damage (3d6 on a raise). This becomes 2d10 with Strong Modifier active (3d10 on a raise).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Havoc",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit",
+      "duration": "Instant",
+      "html": "<p>This ability creates chaos and mischief for all those within its area of effect, hurling debris and rivals in all directions. With success, the caster places a Medium Blast Template anywhere within Range, or a Cone Template emanating from the bender. Anyone touched by the template is Distracted and must then make a Strength roll (at −2 if the caster got a raise). Those who fail are hurled 2d6″ — directly away from the bender if using the Cone Template or directly away from the centre if using a Blast Template (the bender chooses for those in the dead center). Victims who strike a hard object (such as a wall) take 2d4 damage (nonlethal unless it’s a spiked wall or other more dangerous hazard).</p>\n<p><strong>Airborne Targets:</strong> Flying or airborne targets suffer an additional −2 to their Strength rolls as they have no ground to brace themselves on.</p>",
+      "mods": [
+        {
+          "name": "Big",
+          "cost": "-1",
+          "description": "<p>Havoc affects a Large Blast Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>Strength rolls are made at −2.</p>",
+          "epic": false
+        },
+        {
+          "name": "Knocking",
+          "cost": "-1",
+          "description": "<p>Targets who failed the Strength save are also knocked prone.</p>",
+          "epic": false
+        },
+        {
+          "name": "Rending",
+          "cost": "-1 or -2",
+          "description": "<p>Increase the damage dice from d4 to d6 for -1 or d8 for -2.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Jet",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "Instant",
+      "html": "<p>Jet creates a damaging stream that shoots out from the bender in a straight line 1” wide and 12” long starting from the characters position. If successful, targets in the area must make an opposed Agility vs. the Bending skill of the user (-2 on a raise) or suffer 2d8 damage.</p>",
+      "mods": [
+        {
+          "name": "Thrower",
+          "cost": "-1",
+          "description": "<p>The jet remains there until the beginning of your next turn, although any use of reaction breaks your concentration and ends it.</p>",
+          "epic": false
+        },
+        {
+          "name": "Propulsive",
+          "cost": "-2",
+          "description": "<p>First target in the line must make a Strength roll or be Pushed 1d6\" away (or 2d6\" on a raise). If met with any obstacle, the target takes 1d12 additional damage and must make a Strength roll or be knocked prone. If the obstacle was another person, they must make a Strength check or take 1d12 damage and be knocked prone.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Detect/Conceal Chi",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Self",
+      "duration": "See text",
+      "trapping": "The Bender reaches out with their third eye to detect the presence of benders.",
+      "html": "<p>Detect/Conceal Chi allows a character to sense Benders in sight. This can be used to clarify more powerful enemies in an opposing force, find insubstantial enemies, etc. It also detects objects or persons affected by a Bender, for example someone with Raise Trait used on them. The power can also be used to conceal the user or willing target’s bending powers or effects of a power such as the Raise Trait example above. Once active those who might detect their power are unable to for one hour or more at the cost of more Chi.</p>\n<p>The duration is 1 minute for Detect Chi and 1 hour for Conceal Chi.</p>",
+      "mods": [
+        {
+          "name": "Strong",
+          "cost": "-2",
+          "description": "<p>You can see the chakra through thin walls.</p>",
+          "epic": false
+        },
+        {
+          "name": "Duration",
+          "cost": "+1 per minute/hour",
+          "description": "<p>Increase the Duration by 1 minute/hour per penalty.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Elemental Vortex",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Self",
+      "duration": "3",
+      "html": "<p>A vortex of elements surrounds you, concealing you and the creatures adjacent to you (and vice versa), providing a light cover and decreasing the damage from ranged attacks against you by 2. Any creature adjacent to you must make an Agile roll every round or take 2d4 damage of your element.</p>",
+      "mods": []
+    },
+    {
+      "group": "Universal",
+      "name": "Blast",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit * 2",
+      "duration": "Instant",
+      "html": "<p>Blast launches a ball of explosive energy or matter. The area of effect is a Medium Blast Template. Every target within suffers 2d6 damage, or 3d6 with a raise.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1",
+          "description": "<p>The bender can make the blast a Small Blast Template or a Large Blast Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Damage",
+          "cost": "-1",
+          "description": "<p>The blast causes 3d6 damage (4d6 with a raise).</p>",
+          "epic": false
+        },
+        {
+          "name": "Greater Blast",
+          "cost": "-2",
+          "description": "<p>The blast causes 4d6 damage (5d6 with a raise) and is considered a Heavy Weapon.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Elemental Tunnel",
+      "rank": "Veteran",
+      "penalty": "-2",
+      "range": "Self",
+      "duration": "5",
+      "html": "<p>Burrow allows the recipient to meld into their element. They can remain in this element if they want or burrow through it at half his normal Pace (or full Pace with a raise). They may not run. A burrowing character may attempt to surprise a foe by making an opposed Stealth versus Notice roll. If the burrower wins, the target is Vulnerable to them only. With a raise, the burrower gets the Drop. Targets on Hold may attempt to interrupt the attack before it occurs. Burrowers can’t usually surprise a foe once their presence is known but can still burrow for protection and mobility.</p>",
+      "mods": [
+        {
+          "name": "Greater Burrow",
+          "cost": "-2",
+          "description": "<p>The burrowing character moves at their full Pace (×2 with a raise).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Burst",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Cone or Stream",
+      "duration": "Instant",
+      "html": "<p>Success creates a Cone or Stream starting at the caster and extending outward. Everything within the template suffers 2d6 damage (or 3d6 with a raise).</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1",
+          "description": "<p>The bender may extend the burst into a Medium Arc Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Damage",
+          "cost": "-1",
+          "description": "<p>The burst causes 3d6 damage (4d6 with a raise).</p>",
+          "epic": false
+        },
+        {
+          "name": "Push",
+          "cost": "-1",
+          "description": "<p>The targets also must succeed in an opposed Strength roll or be pushed back 2d6”. Large or greater creatures are pushed back d4” instead.</p>",
+          "epic": false
+        },
+        {
+          "name": "Greater Burst",
+          "cost": "-2",
+          "description": "<p>The burst causes 4d6 damage (5d6 with a raise) and is considered a Heavy Weapon.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Damage Field",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit",
+      "duration": "3",
+      "html": "<p>Damage field creates a dangerous aura around the recipient that harms foes foolish enough to get too close. At the end of the affected character’s turn, all adjacent beings automatically take 2d4 damage.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1",
+          "description": "<p>The bender may extend the damage field into a Medium Blast Template centered on the recipient; the bender is immune to their own damage field.</p>",
+          "epic": false
+        },
+        {
+          "name": "Damage",
+          "cost": "-1",
+          "description": "<p>The damage field causes 2d6 damage.</p>",
+          "epic": false
+        },
+        {
+          "name": "Mobile",
+          "cost": "-1",
+          "description": "<p>Mobile works only with the Area of Effect modifier. It allows the bender to detach the damage field from the recipient and move it up to their Spirit die type each round as a limited free action.</p>",
+          "epic": false
+        },
+        {
+          "name": "Duration",
+          "cost": "-1",
+          "description": "<p>Increase the Duration to 1 minute.</p>",
+          "epic": false
+        },
+        {
+          "name": "Greater Damage Field",
+          "cost": "-2",
+          "description": "<p>The damage field causes 3d6 damage and is considered a Heavy Weapon.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Quicken",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Self",
+      "duration": "5",
+      "trappings": "Chakra manipulation",
+      "html": "<p>Success with speed doubles the target’s movement (basic Pace and running). With a raise the character also ignores the −2 running penalty.</p>",
+      "mods": [
+        {
+          "name": "Mercurial",
+          "cost": "-2",
+          "description": "<p>Speed only. The character’s total Multi-Action penalty each turn is reduced by 2 (she can do two actions at no penalty or three at −2 each).</p>",
+          "epic": false
+        },
+        {
+          "name": "Slow",
+          "cost": "-1 / -3",
+          "description": "<p>You can deliver this Technique with a Touch to Slow the enemy. It lessens celerity and coordination of a target, halving its total movement each round (round up). With a raise, movement is also an action. The target automatically attempts to shake off the effects of sloth at the end of each of his next turns by making a Vigour roll. For +4, the Vigour roll to shake off slow’s effects is made at −2.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Veil",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "5 rounds",
+      "trappings": "Thick sea mist, dust cloud, smoke screen.",
+      "html": "<p>The bender summons a cloud of dense vapor in a Medium Blast Template, creating Light Obscurance (Medium with a raise).</p>",
+      "mods": [
+        {
+          "name": "Dense",
+          "cost": "-1",
+          "description": "<p>Increase the Obscurance step by 1.</p>",
+          "epic": false
+        },
+        {
+          "name": "Area of Effect",
+          "cost": "-1",
+          "description": "<p>Expand the cloud to a Large Blast Template or shrink it to a Small Blast Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Mobile",
+          "cost": "-1",
+          "description": "<p>As a limited free action each round, move the cloud at a Pace equal to 1/2 your Bending skill.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Universal",
+      "name": "Elemental Barrage",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Medium Cone",
+      "duration": "Instant",
+      "html": "<p>The bender unleashes a rapid volley of elemental strikes, peppering an area to pin targets down. On a success, each target inside the Cone template must make an Agility roll (with -2 if you scored a raise). Targets who fail can either choose to fall prone and become Distracted or take 2d6 damage (3d6 on a raise). You can move the Cone as a limited free action, 2\" anywhere to the side, affecting anyone touched by the area.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1",
+          "description": "<p>The barrage expands to cover a Large Cone Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Selective",
+          "cost": "-1",
+          "description": "<p>You curve your strikes around friends caught in the template, exempting chosen targets from making the Agility roll.</p>",
+          "epic": false
+        },
+        {
+          "name": "Moving",
+          "cost": "-2",
+          "description": "<p>You can move the cone up to 4\" to sides.</p>",
+          "epic": false
+        },
+        {
+          "name": "Lasting",
+          "cost": "-2",
+          "description": "<p>The jet remains there until the beginning of your next turn, although any use of reaction breaks your concentration and ends it.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Earth",
+      "name": "Advanced Earth Manipulation",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit * 2",
+      "duration": "See text",
+      "html": "<ul>\n<li><p><strong>Compress:</strong> Compress up to 1 cubic metre of loose earth and rock into smaller, denser chunks, or several smaller chunks into one big piece of rock. GM may decide to apply penalties to your Bending roll if you try to compress a particularly dense earth without any help.</p></li>\n<li><p><strong>Magnetization:</strong> You are capable of magnetizing your limbs to any type of stone, making wall-scaling simpler in the appropriate circumstances.</p></li>\n<li><p><strong>Earth Preservation:</strong> Earth preservation is the ability to send localized tremors into the ground to lock physical evidence in place and interpret the subtle markings left behind. With a successful activation, the earthbender preserves the exact shape and depth of tracks in the area and gains a vague impression of the information they are looking for regarding whoever left them. A raise grants more specific information.</p>\n<p>If the earthbender uses earth preservation on a set of fading footprints to investigate a crime scene, for example, success might tell them the person who made them was a heavily armored soldier and that they passed through the area at night. With a raise, the bender might lock down the mud so perfectly they can identify the unique tread pattern of a specific military boot or determine the exact weight and gait of the target to reveal their identity.</p></li>\n</ul>",
+      "mods": []
+    },
+    {
+      "group": "Earth",
+      "name": "Shelter",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit / 2",
+      "duration": "1 day",
+      "html": "<p>The power requires a minute of constant concentration to take full effect. On a success, a shelter of earth and stone appears, the size of a Small Blast Template and 2 meters tall. It has a Hardness of 8 and has an entrance.</p>",
+      "mods": [
+        {
+          "name": "Size",
+          "cost": "-1",
+          "description": "<p>The shelter covers a Large Blast Template and is 4 metres tall.</p>",
+          "epic": false
+        },
+        {
+          "name": "Furnished",
+          "cost": "-1",
+          "description": "<p>The shelter comes with some basic furniture.</p>",
+          "epic": false
+        },
+        {
+          "name": "Tomb",
+          "cost": "-2",
+          "description": "<p>The bend time is instant and you remove any entrances. You can choose to make a window or a door as a limited free action.</p>",
+          "epic": false
+        },
+        {
+          "name": "Distance",
+          "cost": "-1",
+          "description": "<p>Increase the Range to Spirit.</p>",
+          "epic": false
+        },
+        {
+          "name": "Hardness",
+          "cost": "-1",
+          "description": "<p>Increase the Hardness by 2.</p>",
+          "epic": false
+        },
+        {
+          "name": "Stalwart",
+          "cost": "-2",
+          "description": "<p>The shelter gains +12 Heavy Armour.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Earth",
+      "name": "Seismic Sense",
+      "rank": "Veteran",
+      "penalty": "-1",
+      "range": "1 mile",
+      "duration": "1 minute",
+      "html": "<p>The first and foremost of seismic sense's applications is the ability to perceive surroundings. By sensing vibrations in the ground, earthbenders can perceive their surroundings as precisely as normal sight, and in some cases with even greater clarity. The advantage of the sense over normal sight is that practitioners are able to pick up things that are barely visible or even imperceptible to the naked eye as well as things out of their line of sight. Obstacles that would normally obstruct regular vision, such as walls and thick dust clouds, are rendered ineffective against seismic sense. Seismic sense does not only provide surface vision, as the vibrations also travel underground, enabling the user to effectively detect caverns and other deep subterranean cavities.</p>\n<p>The practitioner must always be in direct contact with an earthen surface, through which vibrations can pass, in order to detect their surroundings, which must also be in contact with the same mass of earth. As such, a seismic sense user can detect airborne objects, regardless of their alloy, by estimating their flight path based on the stance the person who launched them had on an earthen surface, although there are known cases where earthen objects launched from an airborne position were also detected. If the user is in the air or water, or even standing on a non-earth solid such as ice or wood, the bender will be unable to sense anything through that substance. Although allowing the user to detect their surroundings in detail, the sub-skill does not allow for perception of facial features or written characters, due to the fact that they are not made of or in contact with earth.</p>\n<p>Sand, although an earthen substance, is not firm like normal earth and renders seismic sense \"fuzzy\" and imprecise for earthbenders who are not used to bending it. Uninterrupted contact with the ground is preferred for the user - an object such as a shoe sole interferes with the sense.</p>",
+      "mods": [
+        {
+          "name": "Range",
+          "cost": "-2 per increase",
+          "description": "<p>Initial increase is from 1 mile to 10 miles. You can increase it by 10 per penalty up to 30 miles max.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Earth",
+      "name": "Armour",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "5",
+      "html": "<p>You encase a target in protective earth, giving them 2 points of Armour (4 on a raise). The target can sacrifice the armour to attempt to Soak 1 Wound for free.</p>\n<p>Armour in Earth stacks with all other armor, natural or worn, and is considered an armour for the Unarmoured Hero.</p>",
+      "mods": [
+        {
+          "name": "Invulnerable",
+          "cost": "-2",
+          "description": "<p>the bonus is applied to Toughness instead (and therefore immune to Armor Piercing modifiers).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Earth",
+      "name": "Entangle",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "Instant",
+      "html": "<p>Entangle restrain a target with earth (Hardness 6).</p>\n<p>If cast successfully, the target must Evade or become Entangled (or Bound with a raise on the arcane skill roll). Victims may try to break free on their turn as detailed under Bound &amp; Entangled.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1 / -2 / -3",
+          "description": "<p>For +1 points the power affects everyone in a SBT. For +2 points the area of effect is increased to a MBT. For +3 it becomes a LBT or use the Stream Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Damage",
+          "cost": "-1",
+          "description": "<p>Entangled targets take 2d4 damage at the end of their turn.</p>",
+          "epic": false
+        },
+        {
+          "name": "Deadly",
+          "cost": "+4",
+          "description": "<p>Entangled targets take 2d6 damage at the end of their turn.</p>",
+          "epic": false
+        },
+        {
+          "name": "Tough",
+          "cost": "-1 / -2",
+          "description": "<p>The entangling material is particularly resilient. Increase its Hardness by 2 (by 4 for -2 penalty).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Earth",
+      "name": "Shield",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "5",
+      "html": "<p>You summon a small shield in your free hand.</p>",
+      "mods": [
+        {
+          "name": "Sturdy",
+          "cost": "-1 / -2",
+          "description": "<p>The shield is Medium (for -1) or Large (for -2)</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Earth",
+      "name": "Move",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "Instant",
+      "trappings": "Metalbending",
+      "html": "<p>The power is opposed by target's Strength. On success, the target is Vulnerable (and Shaken with a raise), then immediately moved 1d6” towards the caster.</p>",
+      "mods": [
+        {
+          "name": "Cone",
+          "cost": "-2",
+          "description": "<p>The power affects everyone inside a Cone Template emanating from the caster. Roll distance once, all affected targets moves that same distance.</p>",
+          "epic": false
+        },
+        {
+          "name": "Flexible",
+          "cost": "-1",
+          "description": "<p>You may move the target in any direction, but the distance from you cannot exceed your Spirit.</p>",
+          "epic": false
+        },
+        {
+          "name": "Fling",
+          "cost": "-2",
+          "description": "<p>You fling instead of moving it, sending it flying for the distance up to your Spirit (double on a raise), knocking it prone and dealing 1d6 for every 4″ that target travels. If the target takes at least 4d6 damage, you also Stun it.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Fire",
+      "name": "Fan the Flames",
+      "rank": "Veteran",
+      "penalty": "-2",
+      "range": "Spirit",
+      "duration": "5",
+      "html": "<p>You can focus on growing the flames around, expanding them and making them deadlier. Choose up to 12\" of flaming squares or objects. The flames become blue. Increase the damage die of the flames by 1 step and expand the flame 1 square into any direction (or increase the small or medium template by 1 step).</p>\n<p>You can also use it as a +3 Modifier with any other viable Technique. You can only use its basic, unmodified version in this case.</p>",
+      "mods": [
+        {
+          "name": "Hellish Flames",
+          "cost": "-2",
+          "description": "<p>The flames are so strong, they deal half of their damage even when you are just standing adjacent to them.</p>",
+          "epic": false
+        },
+        {
+          "name": "Lasting Flames",
+          "cost": "-1",
+          "description": "<p>Increase the Duration to 1 minute</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Healing",
+      "rank": "Seasoned",
+      "penalty": "-2 (-1 per creature Size larger than 2)",
+      "range": "Touch",
+      "html": "<p>With this Technique, you can rapidly heal creatures. Unlike with Mundane healing, you can perform elemental Healing on the same creature every 6 hours (instead of normal 24 hours). Critical Failure does not inflict additional Wound (but increases the Heal immunity duration to 12 hours) and you do not need any tools to perform the Healing (except for clean water).</p>\n<p>It takes 20 minutes of intense, focused work per suffered Wound to perform this Technique. After successful activation of this Technique and the required time, make a Healing roll as normal. The bender takes a -2 penalty when targeting themselves.</p>",
+      "mods": [
+        {
+          "name": "Intensive Care",
+          "cost": "-1 / - 2",
+          "description": "<p>Decrease the immunity duration by 1 hour.</p>",
+          "epic": false
+        },
+        {
+          "name": "Rapid Triage",
+          "cost": "-1 / -2",
+          "description": "<p>Reduce the bending duration to 15 minutes per Wound (10 minutes for -2)</p>",
+          "epic": false
+        },
+        {
+          "name": "Extended Window",
+          "cost": "-1",
+          "description": "<p>Ignore the Golden Hour limitations.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Accelerated Recovery",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Touch",
+      "html": "<p>Requires 2 hours of concentrated bending and can only be applied to the patients after the Golden Hour. On Success, prompts the patient to immediately make a Vigour roll for Natural Healing with a +2 bonus (+4 on a raise). The bender takes a -2 penalty when targeting themselves. Regardless of the result of the Healing roll, the patient is immune to the magical Accelerated Recovery for 6 hours (24 hours on Critical Failure).</p>",
+      "mods": [
+        {
+          "name": "Intensive Care",
+          "cost": "-1 / -2",
+          "description": "<p>Decrease the immunity duration to 3 hours (1 hour for -2).</p>",
+          "epic": false
+        },
+        {
+          "name": "Expedite",
+          "cost": "-1 / -2",
+          "description": "<p>Reduce bending time to 1 hour (30 minutes for -2).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Paralysis",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit",
+      "duration": "5",
+      "trappings": "Blood magic",
+      "html": "<p>Paralysis allows a character to freeze enemies in place. This is an opposed roll against the target’s Vigour. On a success, the target’s Pace is reduced to 0. On a raise, the target can take no actions. The target can make a Vigour roll every round (at -2 on a raise) to remove the effect. The bender must concentrate on the target to sustain this technique. If the bender becomes distracted, they must make a Bending roll with -1 to not lose the technique.</p>",
+      "mods": [
+        {
+          "name": "Duration",
+          "cost": "-2",
+          "description": "<p>Increase the duration to 1 minute.</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Shelter",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit / 2",
+      "duration": "1 day",
+      "html": "<p>The power requires a minute of constant concentration to take full effect. On a success, a shelter of packed ice appears, the size of a Small Blast Template and 2 meters tall. It has a Hardness of 6, weakness to fire, resistance to water, and has an entrance.</p>",
+      "mods": [
+        {
+          "name": "Size",
+          "cost": "-1",
+          "description": "<p>The shelter covers a Large Blast Template and is 4 metres tall.</p>",
+          "epic": false
+        },
+        {
+          "name": "Furnished",
+          "cost": "-1",
+          "description": "<p>The shelter comes with some basic furniture.</p>",
+          "epic": false
+        },
+        {
+          "name": "Tomb",
+          "cost": "-2",
+          "description": "<p>The bend time is instant and you remove any entrances. You can choose to make a window or a door as a limited free action.</p>",
+          "epic": false
+        },
+        {
+          "name": "Distance",
+          "cost": "-1",
+          "description": "<p>Increase the Range to Spirit.</p>",
+          "epic": false
+        },
+        {
+          "name": "Hardness",
+          "cost": "-1",
+          "description": "<p>Increase the Hardness by 2.</p>",
+          "epic": false
+        },
+        {
+          "name": "Stalwart",
+          "cost": "-2",
+          "description": "<p>The shelter gains +10 Heavy Armour.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Armour",
+      "rank": "Novice",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "5",
+      "html": "<p>You encase a target in protective ice, giving them 2 points of Armour (4 on a raise) and fire resistance.</p>\n<p>Armour in Ice stacks with all other armor, natural or worn, and is considered an armour for the Unarmoured Hero.</p>",
+      "mods": [
+        {
+          "name": "Invulnerable",
+          "cost": "-2",
+          "description": "<p>the bonus is applied to Toughness instead (and therefore immune to Armor Piercing modifiers).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Entangle",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "Instant",
+      "html": "<p>Entangle restrain a target with packed ice (Hardness 6).</p>\n<p>If cast successfully, the target must Evade or become Entangled (or Bound with a raise on the arcane skill roll). Victims may try to break free on their turn as detailed under Bound &amp; Entangled.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1 / -2 / -3",
+          "description": "<p>For +1 points the power affects everyone in a SBT. For +2 points the area of effect is increased to a MBT. For +3 it becomes a LBT or use the Stream Template.</p>",
+          "epic": false
+        },
+        {
+          "name": "Damage",
+          "cost": "-1",
+          "description": "<p>Entangled targets take 2d4 damage at the end of their turn.</p>",
+          "epic": false
+        },
+        {
+          "name": "Tough",
+          "cost": "-1 / -2",
+          "description": "<p>The entangling material is particularly resilient. Increase its Hardness by 2 (by 4 for -2 penalty).</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Water Bubble",
+      "rank": "Seasoned",
+      "penalty": "-2",
+      "range": "Spirit * 2",
+      "duration": "5",
+      "html": "<p>You trap objects or creatures (including oneself) in a water bubble. On activation, you may immediately move the target of 160 lbs (~72 kg) weight up to your Spirit. Double the weight and the distance on a raise.</p>\n<p>You must spend an action every turn to sustain the bubble, otherwise it bursts, and you use the Bending skill to do so (but are not activation rolls and therefore not subject to Backlash from Critical Failures). As a limited free action, you may move the target in the bubble if you successfully sustained the bubble.</p>\n<p>Unwilling beings targeted by water bubble resist with an opposed Bending roll when first targeted, and at the start of each of their turns thereafter until they’re released.</p>\n<p>The Water Bubble is not hollow and targets trapped in there must hold their breath. If the target was unprepared for your Water Bubble (you had a Drop, or target was otherwise Distracted), then it's breathing stamina is halved.</p>",
+      "mods": [
+        {
+          "name": "Safe",
+          "cost": "-1",
+          "description": "<p>The bubble is hollow and the target doesn't need to hold their breath inside.</p>",
+          "epic": false
+        },
+        {
+          "name": "Power",
+          "cost": "-2",
+          "description": "<p>You can move targets up to 640 lbs (double on a raise) in weight.</p>",
+          "epic": true
+        },
+        {
+          "name": "Fling",
+          "cost": "-2",
+          "description": "<p>You fling the target and end the technique, sending it flying for the distance up to 1/2 of your Spirit (double on a raise), knocking it prone and dealing 1d6 for every 2″ that target travels. If the target takes at least 4d6 damage, you also Stun it.</p>",
+          "epic": true
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Banish",
+      "rank": "Veteran",
+      "penalty": "-2",
+      "range": "Spirit",
+      "duration": "Instant",
+      "trappings": "Spiritbending",
+      "html": "<p>Banish sends spirits back to the Spirit World. It's opposed by a spirit's <em>Spirit</em> trait. Success means the target is Shaken, and each raise causes a Wound. If this Incapacitates the target it returns to the Spirit World.</p>",
+      "mods": [
+        {
+          "name": "Area Effect",
+          "cost": "-1 / -2 / -3",
+          "description": "<p>The power affects everything in a Small, Medium, or Large Blast Template</p>",
+          "epic": false
+        }
+      ]
+    },
+    {
+      "group": "Water",
+      "name": "Move",
+      "rank": "Seasoned",
+      "penalty": "-1",
+      "range": "Spirit",
+      "duration": "Instant",
+      "trappings": "Waterbending, Plantbending, Bloodbending, Spiritbending",
+      "html": "<p>Depending on the trappings, the power is opposed by either Agility or Vigour. On success, the target is Vulnerable (and Shaken with a raise), then immediately moved 1d6” towards the caster.</p>",
+      "mods": [
+        {
+          "name": "Cone",
+          "cost": "-2",
+          "description": "<p>The power affects everyone inside a Cone Template emanating from the caster. Roll distance once, all affected targets moves that same distance.</p>",
+          "epic": false
+        },
+        {
+          "name": "Flexible",
+          "cost": "-1",
+          "description": "<p>You may move the target in any direction, but the distance from you cannot exceed your Spirit.</p>",
+          "epic": false
+        },
+        {
+          "name": "Fling",
+          "cost": "-2",
+          "description": "<p>You fling instead of moving it, sending it flying for the distance up to your Spirit (double on a raise), knocking it prone and dealing 1d6 for every 4″ that target travels. If the target takes at least 4d6 damage, you also Stun it.</p>",
+          "epic": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "category": "Background",
+      "group": "",
+      "name": "Berserk",
+      "requirements": "Novice",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Novice</p>\n<p>Immediately after suffering a Wound or Shaken condition, the character must make a Smarts roll or go Berserk (they may choose to fail voluntarily).</p>\n<p>While Berserk, the character’s Strength increases a die type, they gain +2 Toughness, ignore 1 level of Wound penalties, and add +2 to all damage rolls made with melee attacks, <em>Elemental Assault</em>, <em>Elemental Hurl</em>, and directly offensive powers. Every melee attack or Elemental Hurl/Assault must be a Wild Attack.</p>\n<p>Her Parry is reduced by 2, and she cannot take the Defend maneuver, Aim, or use mundane ranged weapons (such as bows, thrown weapons, or firearms). Concentration skills cannot be used, with one exception: benders may use techniques with directly destructive, damaging, or disruptive effects (such as <em>blast</em>, <em>bolt</em>, <em>burst</em>, <em>damage field</em>, <em>havoc</em>, etc).</p>\n<p>If the character rolls a Critical Failure on the skill die for an attack or technique (regardless of the Wild Die), the attack accidentally strikes the nearest ally within reach or range.</p>\n<p>After five consecutive rounds of berserk fury, the hero takes a level of Fatigue. At ten rounds, she takes another level of Fatigue and the rage ends. She may also choose to end her rage at any time by making a Smarts −2 roll (as a free action; possibly avoiding Fatigue if she manages to end her rage before it’s incurred!). Start the count anew if she goes berserk again, even in the same battle.</p>"
+    },
+    {
+      "category": "Background",
+      "group": "",
+      "name": "Experienced Healer",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You ignore patient's Wounds when Healing and gain +2 to all Healing rolls.</p>"
+    },
+    {
+      "category": "Background",
+      "group": "",
+      "name": "Shadow Training",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You gain +1 to all opposed rolls made against your element, as well as +1 to your Parry and Toughness against your element.</p>"
+    },
+    {
+      "category": "Background",
+      "group": "",
+      "name": "Companion",
+      "requirements": "Novice",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Novice</p>\n<p>The companions are small creatures (Size −2 or −3) that serve as a loyal pets. They are loyal to their masters but aren’t slaves. They are very smart versions of their species and can occasionally be distracted by their own inherent instincts. For example, a cat might interrupt its task to chase a mouse or take a brief nap, and a dog will almost certainly bark when a stranger approaches.</p>\n<p>A companion is a Wild Card with respect to Wounds and rolling a Wild Die with its Trait rolls. It doesn’t get Bennies, but the owner can spend his own on its behalf.</p>\n<p>Companions don’t advance, but instead gain one of the advantages below for each of its master’s Ranks (including Novice) and for every fourth advance the hero gains past Legendary.</p>\n<p><strong>Elemental:</strong> The companion becomes imbued with your element. It now may help the bender to maintain exactly one Technique. While the companion maintains the technique, the bender does not suffer the -1 maintenance penalty. If the familiar is Distracted, Shaken, Stunned, or Wounded, the power immediately drops.</p>\n<p><strong>Training:</strong> The mage can increase two of the companion’s Traits one die type (no more than once per Trait).</p>\n<p><strong>Edge:</strong> The companion gains an Edge. It must make sense for the companion’s species (GM’s call) and meet the Requirements as usual.</p>"
+    },
+    {
+      "category": "Weird",
+      "group": "",
+      "name": "Faith's Favoured",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>Whenever you're dealt a Face Card (Jack, Queen, or King) in combat, you may ignore 1 point of bending penalty (2 if you're dealt a Joker) that round.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Lightning Reflexes",
+      "requirements": "Danger Sense or Level Headed or Quick",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Danger Sense or Level Headed or Quick</p>\n<p>Once per scene (even out of his turn), the bender can activate a power as a free action.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Bending Mastery",
+      "requirements": "Seasoned",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p>Select 1 or 2 different Techniques which you master diligently. If you selected a single Technique, reduce the bending penalties by 2 for it. If you selected 2 Techniques, reduce the penalty by 1 for both.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Epic Bending",
+      "requirements": "Veteran",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Veteran</p>\n<p>You can use Epic Modifiers.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Channeling Mastery",
+      "requirements": "Seasoned",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p>Through training and focus, the bender is extremely efficient in channeling their techniques. The base Duration of any non-Instant Technique is doubled (this includes maintaining Techniques as well). Additionally, you ignore 1 point of the maintenance penalty.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Concentration Mastery",
+      "requirements": "Seasoned",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p>You have trained your head chakra extensively, making it easier to concentrate on gathering elements. Instead of wasting the whole round on Power Preparation, you spend a single action that does not contribute to your MAP.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Careful Bending",
+      "requirements": "Seasoned",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p>You won't harm yourself with your own Area of Effect Techniques. Additionally, when you Critically Fail your Bending roll, you can spend a Bennie to avoid a Backlash.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Extra Effort",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You can push your body to its limits to perform a particularly hard Technique. As a limited free action, you ignore 2 points of bending penalty for the next technique activation. You become Fatigued at the end of your turn. This ability can render you incapacitated.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Chakra Drain",
+      "requirements": "Seasoned, Extra Effort",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Extra Effort</p>\n<p>You may voluntarily take a Wound to immediately ignore 4 points of bending penalties for the next technique activation. This Wound <em>cannot</em> be Soaked with a Bennie, though it can be healed normally afterwards.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Elemental Crush",
+      "requirements": "Seasoned, Elemental Cushion (see Advanced Bending Techniques)",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Elemental Cushion (see Advanced Bending Techniques)</p>\n<p>If you successfully landed with Elemental Cushion, you also attack all targets adjacent to the square where you landed with your Elemental Assault as a limited free action. On a raise, they are also pushed 2\" and knocked prone.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Chakra Overflow",
+      "requirements": "Veteran",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Veteran</p>\n<p>You ignore all the bending penalties for the next technique, but if the Bending skill roll results in a Failure, it is automatically treated as a Critical Failure (which cannot be dampened by any means).</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Universal",
+      "name": "Efficient Bending",
+      "requirements": "Seasoned",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p>Once per encounter, you may activate a power on yourself as a limited free action. You must be the only target of that power (no Additional Recipient or Area of Effect).</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Earth",
+      "name": "Rock Gloves",
+      "requirements": "Veteran, Earthbender",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Veteran, Earthbender</p>\n<p>You can easily scale earth surfaces — walls and ceilings — with your hands (half Pace with only one hand).</p>\n<p>You can switch between Gloves and Fingers modes — or turn back regular Hurl/Assault — with one action. Switching the mode instantly reloads both gloves. You cannot use Elemental Assault if your glove isn't loaded.</p>\n<p><strong>Modes:</strong></p>\n<ol>\n<li><p><strong>Gloves:</strong> Both your Elemental Hurl attacks now have one shot; Reload 1; +1 Parry per loaded hand; <strong>Dai Lee Move</strong>.</p></li>\n<li><p><strong>Fingers:</strong> Both your Elemental Hurl attacks now have 5 shots; Reload 1; RoF 1; Burst 5; Both Hurl and Assault gain AP 2.</p></li>\n</ol>\n<p><strong>Dai Lee Move:</strong> Allows your Element Hurl/Assault to disable and disarm targets instead of damaging them. Make a Called Shot with +2 bonus. On hit at mouth, you shut your target up. On hit at legs you disable one leg and halve your target's movement (on a raise, you disable both legs, knocking target prone and disabling it's movement). On hit at hands you disable one hand imposing a -4 penalty to all rolls that require two working hands (on a raise, you disable both hands).</p>\n<p>Cuffs Hardness is 10.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Fire",
+      "name": "Attack is the best Defense",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>Requirements: Firebender, Sweeping Techniques, Seasoned</p>\n<p>When performing a Defend, Full Defense or changing the stance to Defensive, you sweep your arms or legs in a broad circle, flinging a flat crescent of fire around yourself. Choose the targets within your Reach + 1\" and roll Bending. The targets must roll opposed Agility check or be pushed 2\" away from you. On a raise, you also deal the damage of your Elemental Assault.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Fire",
+      "name": "Sweeping Techniques",
+      "requirements": "Seasoned, Firebender",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Firebender</p>\n<p>When using Elemental Assault, you can make a Sweep attack against all hostile targets within your Reach. This inflicts a -2 penalty to your attack roll unless you are in Offensive Stance. Resolve damage separately for each enemy hit. You may perform this once per turn, and it does not stack with Frenzy. Additionally, you can centre any Blast or Cone bending technique on yourself, changing it to a Medium Ring template.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Fire",
+      "name": "Explosive Bending",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>Every time you score a raise on your Elemental Assault, all hostile targets within your Reach + 1\" (but not to your main target) must make an Agility roll with -2 or take half of your Elemental Assault damage. Doesn't work with Sweep or Sweeping Techniques Edges. If you scored 2 raises, you deal full Elemental Assault damage.</p>"
+    },
+    {
+      "category": "Technique",
+      "group": "Water",
+      "name": "Ice Claws",
+      "requirements": "Seasoned, Waterbender",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Waterbender</p>\n<p>You can easily scale icy surfaces — walls and ceilings — with your hands (half Pace with only one hand).</p>\n<p>You can use Ice Claws as Elemental Assault/Hurl, gaining +1 AP. Your Elemental Hurl changes: it gains 5 shots, Reload 1, RoF 1, Burst 5. You cannot use your Elemental Assault if it's \"unloaded\".</p>"
+    },
+    {
+      "category": "Combat",
+      "group": "",
+      "name": "Leg Work",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You’ve learnt to use your legs to bend and can bend even with your hands disabled (although with a -1 penalty to rolls and damage). Additionally, your Elemental Assault attack gains reach quality and your Elemental Hurl distance is increased to 8/16/34.</p>"
+    },
+    {
+      "category": "Combat",
+      "group": "",
+      "name": "Deadly Hurl",
+      "requirements": "Veteran",
+      "stance": "",
+      "html": "<p><strong>Requirements</strong> Veteran</p>\n<p>Increase the damage of your Elemental Hurl to 2d8.</p>"
+    },
+    {
+      "category": "Combat",
+      "group": "",
+      "name": "Fatal Hurl",
+      "requirements": "Legendary, Deadly Hurl",
+      "stance": "",
+      "html": "<p><strong>Requirements</strong> Legendary, Deadly Hurl</p>\n<p>Increase the damage of your Elemental Hurl to 2d10.</p>"
+    },
+    {
+      "category": "Combat",
+      "group": "",
+      "name": "Deadly Assault",
+      "requirements": "Veteran",
+      "stance": "",
+      "html": "<p><strong>Requirements</strong> Veteran</p>\n<p>Increase the damage of your Elemental Assault by 1 die.</p>"
+    },
+    {
+      "category": "Combat",
+      "group": "",
+      "name": "Close Combat Specialist",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>When bending in melee, you gain +2 to your Bending for the purpose of calculating it against your target's Parry (see the Martial Bending rule). Additionally, you do not become Vulnerable from bending in melee.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Fluid Stance",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>Once per round, you can change your stance as a limited free reaction on an offensive action directed against you. Additionally, changing stance action doesn't contribute to your MAP.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Elemental Onslaught",
+      "requirements": "",
+      "stance": "Offensive",
+      "html": "<p><strong>Stance:</strong> Offensive</p>\n<p>Decrease your MAP by 1, but only if all of your offensive actions are directed against the same target.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Forceful Elements",
+      "requirements": "",
+      "stance": "Offensive",
+      "html": "<p><strong>Stance:</strong> Offensive</p>\n<p>Your Elemental Hurl/Assault also test the opponent for Strength. If they fail, they are pushed 1d4\" away (they are pushed 1d6\" and are knocked prone if your attack scored a raise).</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Pummeling Strikes",
+      "requirements": "Seasoned",
+      "stance": "Offensive",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p><strong>Stance:</strong> Offensive</p>\n<p>If you successfully Shake or Wound an enemy with a Called Shot to the chest (-2), they must make a Vigour roll or become Fatigued 1 (Fatigued 2 on a raise) until they succeed at a free Vigour roll. If you Shake or Wound an enemy with a Called Shot to the head (-4), they must make a Vigour roll or become Vulnerable and Distracted (Stunned on a raise) until they succeed at a free Vigour roll. You cannot bring the target to incapacitation from Fatigued with this Edge.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Mountain Stance",
+      "requirements": "",
+      "stance": "Defensive",
+      "html": "<p><strong>Stance:</strong> Defensive</p>\n<p>Gain +1 Armour while in Defensive Stance and +1 to rolls against forced movement or effects that knock you prone.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Unleash Elements",
+      "requirements": "",
+      "stance": "Offensive",
+      "html": "<p><strong>Stance:</strong> Offensive</p>\n<p>At the start of your turn, you may choose to become Vulnerable. If you do, you add +2 damage to your bending attacks and impose a -2 penalty on enemy rolls to resist or evade your Techniques until your next turn.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Hampering Stance",
+      "requirements": "",
+      "stance": "Hybrid",
+      "html": "<p><strong>Stance:</strong> Hybrid</p>\n<p>In Offensive Stance, you gain +2 to your attack rolls against targets trying to leave your threat zone.</p>\n<p>In Defensive Stance, targets that move into or out of your adjacent zone must make an Agility roll or be forced to stop their movement.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Turtle Shell",
+      "requirements": "",
+      "stance": "Defensive",
+      "html": "<p><strong>Stance:</strong> Defensive</p>\n<p>When using Defend action, increase the penalty applied to ranged attacks made against you to -4.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Dancing Stance",
+      "requirements": "Seasoned",
+      "stance": "Hybrid",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p><strong>Stance:</strong> Hybrid</p>\n<p>In Offensive Stance, you can move 1\" as a free action after every successful offensive action.</p>\n<p>In Defensive Stance, you can move 1\" as a free action after every successful defensive action or after every missed attack against you.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Redirect Energy",
+      "requirements": "Veteran",
+      "stance": "Defensive",
+      "html": "<p><strong>Requirements:</strong> Veteran</p>\n<p><strong>Stance:</strong> Defensive</p>\n<p>When attacked in melee, you can use a limited free reaction to disarm, knock prone or move the opponent within adjacent squares. You, however, roll with a -2 penalty (or no penalty if the <em>opponent</em> scored a raise). You can spend a Benny to use this ability even if you are out of reactions.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Bending Parry and Riposte",
+      "requirements": "Seasoned",
+      "stance": "Hybrid",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p><strong>Stance:</strong> Hybrid</p>\n<p><strong>Defensive:</strong> You can parry with your bending. As a limited free reaction on a range or melee attack directed against you, roll your Bending skill. On success, you impose a -1 penalty against the attack (-2 on a raise). On a Critical Failure, as a backlash, the attacker chooses to make you Vulnerable for one round or knock you Prone.</p>\n<p><strong>Offensive:</strong> You can use Elemental Hurl or Elemental Assault as a limited free reaction on a corresponding attack type (on a raise, the target is also Vulnerable against you for 1 round).</p>\n<p>You can spend a Benny to use this ability even if you are out of reactions.</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Dampening Parry",
+      "requirements": "Bending Parry and Riposte, Veteran",
+      "stance": "Defensive",
+      "html": "<p><strong>Requirements:</strong> Bending Parry and Riposte, Veteran</p>\n<p><strong>Stance:</strong> Defensive</p>\n<p>On Bending Parry success, gain 2 Armour against the attack (4 on a raise).</p>"
+    },
+    {
+      "category": "Stance",
+      "group": "",
+      "name": "Reflecting Parry",
+      "requirements": "Bending Parry and Riposte, Veteran",
+      "stance": "Defensive",
+      "html": "<p><strong>Requirements:</strong> Bending Parry and Riposte, Veteran</p>\n<p><strong>Stance:</strong> Defensive</p>\n<p>Instead of blocking, you can redirect the attack back at the attacker once per round. Make an opposed Bending roll against the attack. On a success, redirect the attack using your roll result. On a raise, the target is Vulnerable against this attack.</p>"
+    },
+    {
+      "category": "Professional",
+      "group": "",
+      "name": "Additional Techniques",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You learn 3 new Techniques.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Sandbending",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You can bend sand. This might grant occasional bonuses, for example, a +1 bonus to <em>Veil</em> and <em>Impede</em> activation rolls when sand is present.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Metalbending",
+      "requirements": "Seasoned, Bending d10+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Bending d10+</p>\n<p>You bend the unrefined earth within metal. Your <em>Elemental Hurl</em> and <em>Assault</em> gain AP 2. It adds +4 Hardness to bent structures (such as Shelter, <em>Barrier</em>, <em>Entangle</em>). It also unlocks the <em>Attract (Hook)</em> technique to pull targets or swing using metal cables.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Glassbending",
+      "requirements": "Seasoned, Bending d10+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Bending d10+</p>\n<p>You manipulate fragile but razor-sharp glass. This increases the damage of your damaging techniques, as well as <em>Elemental Hurl</em> and <em>Elemental Assault</em>, by 2 when wielding glass.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Crystalbending",
+      "requirements": "Heroic, Glassbending, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Heroic, Glassbending, Bending d12+</p>\n<p>You manipulate highly durable crystalline structures for defence and containment. When using crystal, your <em>Armour in Earth</em> and <em>Shield</em> techniques grant an additional +1 Armour. Additionally, the structures you bend from crystal (such as <em>Barrier</em>, <em>Entangle, Shelter,</em> etc) gain +2 Hardness. The damage and AP of your damaging techniques, as well as <em>Elemental Hurl</em> and <em>Elemental Assault</em>, is increased by 2 when wielding crystal.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Lavabending",
+      "requirements": "Heroic, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Heroic, Bending d12+</p>\n<p>You melt earth into magma. Your damaging Earth techniques might make your targets catch Fire (see Hazards in Savage Worlds) for 2d6 damage. Your area techniques unlock the <em>Lingering Area (+1 Penalty)</em> modifier, dealing 2d6 lava damage at the start of your next turn to anyone remaining in the template.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Pigmentbending",
+      "requirements": "Sandbending, Veteran, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Sandbending, Veteran, Bending d12+</p>\n<p>You manipulate mineral-based paints and inks. This might grant occasional bonuses, for example, a +1 bonus to <em>Blind</em> and <em>Disguise</em> activation rolls when using pigments.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Earth",
+      "name": "Mudbending",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You can bend the earth mixed in mud. This might grant occasional bonuses, for example, a +1 bonus to <em>Veil</em> and <em>Impede</em> activation rolls when mud is present.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Fire",
+      "name": "Lightningbending",
+      "requirements": "Seasoned, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned, Bending d12+</p>\n<p>You separate positive and negative energies to direct lightning. Activating lightning requires <em>Slow Cast</em> (taking your entire turn with no Multi-Actions or Running). You fire it as an <em>Elemental Hurl</em> or <em>Elemental Assault</em>, with +4 bonus AP, Heavy Weapon quality, one extra die of elemental damage. If your target is clad in metallic armour or is made of metal, your attack gain +2 and the damage is increased by another extra elemental die.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Fire",
+      "name": "Heatbending",
+      "requirements": "Seasoned",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Seasoned</p>\n<p>You extract or project pure ambient heat without generating fire, manipulate thermal energy, combustion byproducts, and heat.</p>\n<p>You can use <em>Basic Elemental Manipulation (Regulate)</em> to inflict extreme heat on a target. The target must make a Vigour roll or take a level of Fatigue.</p>\n<p>You can also use Heatbending as a modifier for most your damage dealing techniques, decrease the damage die by 1 step but forcing your targets to make a Vigour roll when they become Shaken, or become Fatigued as well (you cannot incapacitate target from Fatigue with this modifier). This modifier can also be applied to non-damaging techniques that might involve smoke, such as Veil.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Fire",
+      "name": "Combustionbending",
+      "requirements": "Heroic, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Heroic, Bending d12+</p>\n<p>You project explosive energy from a third-eye tattoo. You can cast the <em>Blast</em> technique with the <em>Greater Blast</em> modifier at half its usual penalty (-2 instead of -4) and you increase the damage die by 1 step. Your range for this technique is line of sight. If you are Shaken or Wounded by a Called Shot to the head (-4), your next Combustion technique automatically triggers an <em>Explosive Backlash</em> (a 3d6 explosion centered on you).</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Fire",
+      "name": "Plasmabending",
+      "requirements": "Legendary, Lightningbending, Blue Flames, Bending d12+1 or more",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Legendary, Lightningbending, Blue Flames, Bending d12+1 or more</p>\n<p>You superheat fire into concentrated plasma. Your Techniques, as well as <em>Elemental Assault</em> and <em>Elemental Hurl,</em> ignore the non-spiritual armour. Additionally, you can use the <em>Weaken</em> effect of <em>Basic Elemental Manipulation</em> to instantly melt metal.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Fire",
+      "name": "Blue Flames",
+      "requirements": "Veteran, Bending Mastery (Fan the Flames), Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Veteran, Bending Mastery (Fan the Flames), Bending d12+</p>\n<p>All your fire attacks turn blue, increasing their base damage die by 1 step and gaining AP 2.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Water",
+      "name": "Plantbending",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You can bend the water within flora. When performing Shelter and Entangle techniques using plants, increase the Hardness of the structure by 2. When using Armour in Ice technique using plants, you lose the fire resistance, but can sacrifice the armour to attempt to Soak 1 Wound for free.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Water",
+      "name": "Bloodbending",
+      "requirements": "Veteran, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Veteran, Bending d12+</p>\n<p>You physically control the fluids in a living body. This requires a full moon, unless you are Legendary Rank. It unlocks the <em>Paralysis</em> and the <em>Puppet</em> techniques.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Water",
+      "name": "Spiritbending",
+      "requirements": "Heroic, Bending d12+",
+      "stance": "",
+      "html": "<p><strong>Requirements:</strong> Heroic, Bending d12+</p>\n<p>You manipulate spiritual energy using water. This unlocks the <em>Banish</em> technique to damage or repel spirits. You can also use the Manipulate Emotions and Blind techniques on spirits using water and increasing the distance to your Spirit trait.</p>"
+    },
+    {
+      "category": "SBT",
+      "group": "Water",
+      "name": "Icebending",
+      "requirements": "",
+      "stance": "",
+      "html": "<p>You can bend ice. Unless otherwise specified, all of your ice structures have Hardness 6, weakness to fire and resistance to water. Techniques in ice form deal 1 additional physical damage.</p>"
+    }
+  ],
+  "backgrounds": [
+    {
+      "name": "Earthbending",
+      "html": "<ul>\n<li><p>While in Defensive Stance, you can use your Strength instead of Agility to oppose effect that will move you or knock you prone, and you also receive a +1 bonus to your Strength rolls against such effects.</p></li>\n<li><p>You gain one free Defensive Stance Edge which you meet the requirements for.</p></li>\n</ul>"
+    },
+    {
+      "name": "Firebending",
+      "html": "<ul>\n<li><p>While in Defensive Stance, the Attack penalty is -1 instead of -2.</p></li>\n<li><p>You gain one free Offensive Stance Edge which you meet the requirements for.</p></li>\n</ul>"
+    },
+    {
+      "name": "Waterbending",
+      "html": "<ul>\n<li><p>You gain the Fluid Stance Edge.</p></li>\n<li><p>You can use Fluid Stance as a limited free reaction on an offensive action performed by you.</p></li>\n</ul>"
+    }
+  ],
+  "nations": [
+    {
+      "name": "Earth Kingdom",
+      "html": "<h3>Stone Mentality</h3><p>Earth Kingdom philosophy emphasizes planting your stance and refusing to yield ground. Your Spirit starts at d6 (raising maximum to d12 + 1) and you gain the Strong Willed Social Edge.</p>\n<p>At the same time, you gain the Stubborn (Minor) and Cautious (Minor) Hindrances, as Earth Kingdom traditions run deep, making people slow to change their minds and hesitant to abandon proven, established methods.</p>\n"
+    },
+    {
+      "name": "Fire Nation",
+      "html": "<h3>Educated</h3><p>You will find a school even in the most remote Fire Nation town. Their education system is highly sophisticated and includes mandatory advanced gymnastics. Your Agility and Smarts both start at d6 (raising the maximum for each to d12 + 1).</p>\n<h3>Competitive Spirit</h3><p>Fire Nation culture is driven by achievementism and this is a common thread that runs through the upbringing and coming-of-age of the people of this country. You gain the Arrogant (Minor) and Driven (Minor) Hindrances.</p>\n"
+    },
+    {
+      "name": "Water Tribe",
+      "html": "<h3>Enduring</h3><p>Life in the frozen poles and rough seas builds natural toughness. Vigour starts at d6 (raising maximum to d12 + 1).</p>\n<h3>Hardiness</h3><p>+4 to Vigour rolls made to resist cold environments and hazards.</p>\n<h3>Tribalism</h3><p>You gain All Thumbs (Minor) and Outsider (Minor) Hindrances. You are considered an Outsider when interacting with anyone not from any Water Tribe.</p>\n<h3>Icebending</h3><p>You gain the Icebending SBT Edge.</p>\n"
+    },
+    {
+      "name": "Swamp People",
+      "html": "<h3>Enduring</h3><p>Life in the swamps builds natural toughness. Vigour starts at d6 (raising maximum to d12 + 1).</p>\n<h3>Swamp Life</h3><p>You start with d6 in Boating and Survival.</p>\n<h3>Tribalism</h3><p>You gain either Illiterate (Minor) or All Thumbs (Minor), as well as Outsider (Minor) Hindrances. You are considered an Outsider when interacting with anyone not from any Swamp Tribe.</p>\n<h3>Plantbending</h3><p>You gain the Plantbending SBT Edges.</p>\n"
+    },
+    {
+      "name": "Republican",
+      "html": "<h3>Talented</h3><p>You gain one free Novice Edge which you meet the requirements for.</p>\n"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Athletics",
+      "attribute": "agility",
+      "html": "<p>Athletics combines an individual’s coordination with learned skills such as climbing, jumping, balancing, biking, wrestling, skiing, swimming, throwing, or catching. Characters who rely on physical power more than coordination can take the Brute Edge to link this skill to Strength instead of Agility.</p>"
+    },
+    {
+      "name": "Eloquence",
+      "attribute": "spirit",
+      "html": "<p>Determines how fluent, elegant, and persuasive your language is. It covers diplomacy, deception and taunting.</p>"
+    },
+    {
+      "name": "Intimidation",
+      "attribute": "spirit",
+      "html": "<p>Intimidation is the art of frightening an opponent so that he backs down, reveals information, or flees. Intimidation is an opposed roll resisted by the opponent’s Spirit.</p>"
+    },
+    {
+      "name": "Science",
+      "attribute": "smarts",
+      "html": "<p>Those with this skill have studied various hard sciences such as biology, chemistry, geology, engineering, or any other “hard” science. A successful Science roll reveals basic information about a topic, and a raise grants more details.</p>"
+    },
+    {
+      "name": "Academics",
+      "attribute": "smarts",
+      "html": "<p>Academics reflects knowledge of the liberal arts, social sciences, literature, history, archaeology, and similar fields.</p>"
+    },
+    {
+      "name": "Riding",
+      "attribute": "agility",
+      "html": "<p>Riding allows you to mount, control, and ride any beast or beast-drawn vehicle. This includes horses, camels, dragons, wagons, chariots, and the like.</p>"
+    },
+    {
+      "name": "Boating",
+      "attribute": "agility",
+      "html": "<p>Characters with this skill can handle most any boat or ship common to their setting. They also know how to handle common tasks associated with their vessel such as tying knots, rigging sails, or following currents.</p>"
+    },
+    {
+      "name": "Knowledge",
+      "attribute": "smarts",
+      "html": "<p>Some knowledge that is too niche to be covered by the Common Knowledge, Academics or Science. Here are a couple of examples:</p>\n<ol>\n<li><p><strong>Warfare</strong> Covers the art of war and all military affairs, etiquette, etc.</p></li>\n<li><p><strong>Underworld</strong> Grants knowledge of the criminal worlds: hidden networks of smugglers, black markets, crime syndicates, etc.</p></li>\n</ol>"
+    },
+    {
+      "name": "Notice",
+      "attribute": "smarts",
+      "html": "<p>Notice is your general awareness and alertness. It’s used to sense sights, sounds, tastes, and smells, spot clues, detect ambushes, spot hidden weapons on a foe, or for psychological evaluation of a person. Success conveys basic information — the character hears movement in the forest, smells distant smoke, or senses someone isn’t being completely truthful. A raise grants more detail, such as the direction of a sound or odor or what topic a person is avoiding or lying about.</p>"
+    },
+    {
+      "name": "Performance",
+      "attribute": "spirit",
+      "html": "<p>A good entertainer can lift the spirits, rally a crowd to action, or simply earn a few bucks from the locals. Specifics depend on the situation, setting, and how well the character is known in the area.</p>\n<p>Performance covers singing, acting, playing an instrument, or similar tasks that require an audience to appreciate.</p>\n<p><strong>Raising Funds:</strong> The amount of money a character can raise by performing is extremely subjective, but as a general rule a successful performance raises 20% of Starting Funds with a success and 30% with a raise. The GM can multiply this amount by the performer’s Rank if she feels it’s appropriate. These numbers work for typical performers who might be known in a small establishment or area. Larger performances can greatly boost the performer’s fee, but also require more time, energy, and setup.</p>\n<p><strong>Deception:</strong> Performance can be used instead of Persuasion if the character is attempting to deceive, bluff, or disguise herself and the GM agrees it makes sense in the context of the situation.</p>"
+    },
+    {
+      "name": "Healing",
+      "attribute": "smarts",
+      "html": "<p>Healing has multiple uses, from treating Wounds to diagnosing diseases and analyzing certain kinds of forensic evidence.</p>\n<p><strong>Forensics:</strong> Healing can also be used to analyze evidence that relates to anatomical trauma, including cause and time of death, angle of attack, and similar matters. Success provides basic information and a raise increases the details uncovered.</p>"
+    },
+    {
+      "name": "Sleight of Hand",
+      "attribute": "agility",
+      "html": "<p>Covers your fine motor control and finger dexterity, as well as an ability to control the attention through it and your general coordination. It might involve gambling, pick-pocketing, performing tricks, picking a lock, hiding or planting an item, cracking a safe, disabling a trap, even juggling.</p>"
+    },
+    {
+      "name": "Shooting",
+      "attribute": "agility",
+      "html": "<p>Shooting covers all attempts to hit a target with a ranged weapon such as a bow or pistol (thrown weapons use Athletics).</p>"
+    },
+    {
+      "name": "Stealth",
+      "attribute": "agility",
+      "html": "<p>Stealth is the ability to hide and move quietly. A simple success on a Stealth roll means the character avoids detection if enemies aren’t particularly alert. If the character fails the roll, the enemy realizes something is amiss and begins actively searching for whatever roused them.</p>\n<p>Once foes are alerted and active, Stealth is opposed by Notice (a group roll if there are many foes, see page 89).</p>\n<p>The GM should apply any circumstantial penalties to Notice rolls for darkness, cover, noise, distractions, and any difference in the target’s Scale (just like when attacking, see Scale on page 106). Sneaking through dry leaves might subtract 2 from the Stealth roll, for example, while spotting someone in the dark uses the Illumination penalty listed on page 102 (−4). Don’t apply the same modifier to both rolls, however. If Stealth is at −2 for the leaves, don’t give Notice a +2 for them as well.</p>\n<p><strong>Sneak Attack:</strong> Sneaking up close enough to make a melee attack always requires an opposed Stealth roll versus the target’s Notice, whether the guard is actively looking for trouble or not. If successful, the victim is Vulnerable (page 100) to the attacker, but only until the attacker’s turn ends. With a raise, the attacker has The Drop (page 100) instead.</p>\n<p><strong>Movement:</strong> In combat, characters roll Stealth each turn as a free action at the end of their move or any action the GM thinks might draw attention. Out of combat, the distance moved depends entirely on the situation. The GM might want a roll every minute if the group is sneaking around the perimeter of a defensive position, or every few miles if they’re trying to quietly walk the path through a dark forest without alerting the creatures that live there.</p>"
+    },
+    {
+      "name": "Survival",
+      "attribute": "smarts",
+      "html": "<p>Survival allows a character to find food, water, or shelter in hostile environments. It can also be used to navigate wilderness environments, figure out which plants are good to eat and which aren’t, and so on.</p>\n<p>A successful Survival roll provides enough food and water for one person for one day; or five people with a raise.</p>\n<p>More detailed information on Hunger and Thirst can be found under Hazards on page 125.</p>\n<p><strong>Tracking:</strong> Survival can also be used to detect and follow tracks. Each roll generally covers following the tracks for one mile, but the GM should adjust this as needed for specific circumstances.</p>\n<p>The Game Master should assign a bonus or penalty based on the target, environment, and time. Tracking a large group that recently passed through a snow-covered area might grant a bonus of +4, while following a single person over rocks and streams after more than a day incurs a −4 penalty.</p>"
+    },
+    {
+      "name": "Vehicles",
+      "attribute": "smarts",
+      "html": "<p>Provides practical knowledge for piloting and operating vehicles (including combat vehicles). This specialized lore can also be used instead of most checks made to operate and maintain Imperial combat vehicles.</p>"
+    },
+    {
+      "name": "Fighting",
+      "attribute": "agility",
+      "html": "<p>Fighting covers all hand-to-hand (melee) attacks, whether it’s with fists, axes, laser swords, or martial arts. See Chapter Three for the combat rules and the various maneuvers a warrior might attempt.</p>"
+    },
+    {
+      "name": "Common Knowledge",
+      "attribute": "smarts",
+      "html": "<p>Characters roll Common Knowledge to know people, places, and things of their world, including etiquette, geography, culture, popular technology, contacts, and customs.</p>"
+    },
+    {
+      "name": "Language",
+      "attribute": "smarts",
+      "html": "<p>Communication can be a major barrier that requires characters to put skill points into additional languages. Every character starts with d8 in Universal language and d8 in the language of their Nation (but not Republicans).</p>\n<p>| Skill | Ability |\n| --- | --- |\n| d4 | The character can read, write, and speak common words and phrases. |\n| d6 | The speaker can carry on a prolonged but occasionally halting conversation. |\n| d8 | The character can speak fluently. |\n| d10 | The hero can mimic other dialects within the language. |\n| d12 | The speaker can masterfully recite important literary or oral works. |</p>"
+    },
+    {
+      "name": "Workshop",
+      "attribute": "smarts",
+      "html": "<p>Workshop covers practical carpentry and metalwork. You have your hands growing out of the right place.</p>"
+    },
+    {
+      "name": "Bending",
+      "attribute": "spirit",
+      "html": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>"
+    }
+  ],
+  "stances": [
+    {
+      "name": "Defensive Stance",
+      "html": "<p>You gain +1 to Parry, +1 to opposed rolls made to avoid offensive Techniques, and impose -1 penalty on ranged attack rolls made against you, but take -2 penalty to your Fighting, Shooting and offensive Bending Techniques rolls.</p>"
+    },
+    {
+      "name": "Balanced Stance",
+      "html": "<p>Balance in all things. As it should be.</p>"
+    },
+    {
+      "name": "Offensive Stance",
+      "html": "<p>You roll Fighting, Shooting and directly damaging offensive Techniques with +2, but take -2 penalty on outgoing damage (including Bending Techniques damage)</p>"
+    }
+  ],
+  "rules": "<h3 id=\"bendingandtechniques\">BENDING AND TECHNIQUES</h3>\n<p>Terms \"arcane\" and \"powers\" are renamed to \"bending\" and \"techniques\".</p>\n<hr />\n<h3 id=\"settingrules\">SETTING RULES</h3>\n<p>No Power Points, More Skill Points, Unarmored Hero.</p>\n<p><strong>No Power Points adjustment:</strong> Bending failure <em>DOES NOT</em> end all of your current techniques and does not make you Shaken.</p>\n<p><em>See page 140 of Savage Worlds - Adventure Edition v5.4</em></p>\n<hr />\n<h3 id=\"vanillaswadeedges\">VANILLA SWADE EDGES</h3>\n<p>Unless otherwise specified, all of vanilla Edges from SWADE rulebook <strong>(except for Power Edges)</strong> are available to be picked.</p>\n<hr />\n<h3 id=\"skills\">SKILLS</h3>\n<p>For skills, refer to this article. It covers <em>all</em> of the available skills.</p>\n<hr />\n<h3 id=\"advancement\">ADVANCEMENT</h3>\n<p>At the beginning, and with every Advancement, you learn one free Technique. Additionally, at the beginning, and with every rank you reach, you gain 1 additional Edge.</p>\n<hr />\n<h3 id=\"basicbending\">BASIC BENDING</h3>\n<p>Every Bender starts with one of three Bending Backgrounds automatically gets an access to the Basic Elemental Manipulation and Knacks Techniques.</p>\n<p>Additionally, every Bender learns the basics of offensive Bending and gets the following Natural Weapons:</p>\n<ol>\n<li><p><strong>Elemental Hurl (Shooting):</strong> 2 ranged attacks (6 / 12 / 24), deal 2d6 damage of your element type, one of them is an <em>off-hand</em> weapon.</p></li>\n<li><p><strong>Elemental Assault (Fighting):</strong> 2 melee attacks, deal Str + d6 damage of your element type, one of them is an <em>off-hand</em> weapon.</p></li>\n</ol>\n<hr />\n<h3 id=\"bendingbacklash\">BENDING BACKLASH</h3>\n<p>On a critical failure of Bending or Elemental Hurl/Assault, the Bender becomes Fatigued (or Exhausted, if already was Fatigued; or Incapacitated, if already was Exhausted).</p>\n<hr />\n<h3 id=\"martialbending\">MARTIAL BENDING</h3>\n<p>When engaged in combat, to hit an adjacent enemy (or an enemy with a Reach weapon that engaged the bender in melee) a power must also meet or exceed the opponent’s Parry. So, with an activation roll of 4 or higher, but lower than the target’s Parry, the power does activate but misses the target.</p>\n<p>If the power requires an opposed roll (puppet), it must meet or exceed the defender’s roll or their Parry, whichever is higher.</p>\n<p>When the bender is engaged in melee and wants to activate a technique on targets he is not engaged with (allies or enemies), he becomes Vulnerable. Activating a technique on himself (armour) or on his equipment (smite), does not cause him to be Vulnerable. Activating a technique on both himself and other targets (e.g. using the Additional Recipients or Area Effect Modifiers) would. For area effect techniques (blast), the bender becomes Vulnerable for just performing them while being threatened in melee.</p>\n<hr />\n<h3 id=\"flexibletrappings\">FLEXIBLE TRAPPINGS</h3>\n<p>You can use any of your Techniques, as well as Elemental Hurl/Assault, with any Trappings you have access to (e.g. waterbender can use ice trappings for their Techniques).</p>\n<hr />\n<h3 id=\"mundanehealing\">MUNDANE HEALING</h3>\n<p>A medic rolls their Healing skill once every 24 hours per patient, taking -1 penalty for each Wound suffered by the patient. It takes at least 10 minutes (but might take more, depending on the severity of the Wounds) per Wound to perform a check. A medic can treat simultaneously a number of patients equal to half their Smarts die (more with the Triage Edge). A successful Healing roll removes one Wound (2 on a raise). A Critical Failure inflicts one additional Wound.</p>\n<p>Without access to proper equipment or a clean facility, the medic may suffer penalties to their Healing rolls or not be able to perform the healing at all. Stopping Bleeding Out can be done with improvised tools (though with penalties.)</p>",
+  "questions": "<p><strong>Background</strong> <strong>questions:</strong></p>\n<ol>\n<li><p>Name, age</p></li>\n<li><p>Where were you born and raised? If not in Republic City, how did you get here?</p></li>\n<li><p>How did you learn bending?</p></li>\n<li><p>What brought you into illegal fighting?</p></li>\n<li><p>Do you have any connections within or outside the Republic City?</p></li>\n<li><p>What are your current main problems in life?</p></li>\n<li><p>What are your current goals?</p></li>\n<li><p>What are your wares? Do you have any important sentimental items? (Lucky charm, childhood doll, etc.)</p></li>\n</ol>\n<hr />\n<p>Imagine that you're being interviewed live on the radio by a pretty news reporter. She asks you the following questions, one by one. Answer the questions as if you were the rising star of pro-bending and try to act cool:</p>\n<ol>\n<li><p>Introduce yourself briefly.</p></li>\n<li><p>So, tell us about a day in a life of a pro-bender. Your morning routine, what do you do throughout the day up until bedtime?</p></li>\n<li><p>Where do you see yourself in one year?</p></li>\n<li><p>Can you give our young listeners some advice?</p></li>\n<li><p>What do you have to say to your fans?</p></li>\n<li><p>What do you have to say to your haters?</p></li>\n<li><p>Where does the power lie?</p></li>\n</ol>"
+}
