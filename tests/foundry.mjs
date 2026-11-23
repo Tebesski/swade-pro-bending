@@ -37,7 +37,7 @@ try {
     }
     return counts;
   },ID);
-  assert.deepEqual(counts,{techniques:44,backgrounds:3,stances:3,edges:56,nations:5,"bending-kit":33,effects:23,macros:11,rules:1,"pro-benders":108});
+  assert.deepEqual(counts,{techniques:44,backgrounds:3,stances:3,edges:56,nations:5,"bending-kit":33,effects:24,macros:20,rules:1,"pro-benders":108});
   const roster=await page.evaluate(async()=>{
     const {actorRating,npcRank}=await import("/modules/swade-better-setting/scripts/npc-data.mjs");
     const powers=game.modules.get("swade-better-powers").api;
@@ -162,10 +162,10 @@ try {
     qa.nanuq=await game.actors.importFromCompendium(pack,qa.doc("pro-benders","Nanuq").id);
     qa.actors.push(qa.nanuq);
     await qa.nanuq.update({"system.details.notes":"<p>Old notes.</p>","system.details.goals":"<p>Old goal.</p>",
-      [`flags.${qa.id}.-=rosterTextVersion`]:null});
+      [`flags.${qa.id}.rosterTextVersion`]:new foundry.data.operators.ForcedDeletion()});
     const {migrateRosterText}=await import("/modules/swade-pro-bending/scripts/roster.mjs");
     await migrateRosterText([qa.nanuq]);
-    if (qa.nanuq.system.details.goals || !qa.nanuq.system.details.notes.includes("<li>Back up along the outside lane.</li>")) {
+    if (qa.nanuq.system.details.goals || qa.nanuq.system.details.notes!==qa.doc("pro-benders","Nanuq").system.details.notes) {
       throw Error("The imported NPC still has the old Notes or Goals.");
     }
     qa.nanuq.sheet.tabGroups.primary="actions";
@@ -180,10 +180,12 @@ try {
     const actor=qa.nanuq;
     const roll=await actor.rollSkill(actor.items.getName("Athletics").id,{suppressChat:true});
     const app=[...foundry.applications.instances.values()].find(app=>app.ctx?.flavor==="Undertow Feint");
+    const bonus = app.ctx.mods.find(m=>m.label==="Undertow Feint")?.value;
     await app.close();
-    return roll.formula;
+    return {unrelated:roll.formula,bonus};
   });
-  assert.match(rollForm,/2\[Undertow Feint\]/);
+  assert.equal(Number(rollForm.bonus),2);
+  assert.doesNotMatch(rollForm.unrelated,/Undertow Feint/);
   await page.waitForFunction(()=>!qa.nanuq.effects.getName("Undertow Feint"));
   assert.equal(await page.evaluate(()=>Boolean(qa.nanuq.items.getName("Undertow Feint").getFlag(qa.id,"signatureUsed"))),false);
   await page.evaluate(()=>qa.nanuq.sheet.close());
@@ -288,7 +290,8 @@ try {
     const row=a.sheet.element.querySelector('.sbs-power[data-item-id="'+knack.id+'"]');
     const display=a.sheet.element.querySelector('.sbs-power[data-item-id="'+blast.id+'"] .sbs-power-description');
     const state={mastered,off,knackButtons:row?.querySelectorAll("[data-sbs-power-action='formula'],[data-sbs-power-action='tableAction']").length,
-      desc:blast.system.description,summary:!!display?.querySelector(".sbs-power-modifier-summary")};
+      desc:blast.system.description,inlineSummary:!!display?.querySelector(".sbs-power-modifier-summary"),
+      collapsedSummary:!!display?.nextElementSibling?.matches("details.sbs-power-modifier-summary:not([open])")};
     await a.sheet.close();
     return state;
   });
@@ -296,7 +299,8 @@ try {
   assert.doesNotMatch(controls.off,/Bending Mastery/);
   assert.equal(controls.knackButtons,0);
   assert.equal(controls.desc,"<p>Edited rules text.</p>");
-  assert.equal(controls.summary,false);
+  assert.equal(controls.inlineSummary,false);
+  assert.equal(controls.collapsedSummary,true);
   console.log("Effects use the native list and icon setting, Knacks has no roll controls, and mastery follows its item flag and effect toggle");
   const edges=await page.evaluate(async()=>{
     const a=qa.Earthbending;
@@ -378,11 +382,12 @@ try {
     await medic.toggleActiveEffect("incapacitated",{active:false});
     await qa.add(medic,"bending-kit","Healing");await qa.add(medic,"techniques","Healing");await qa.add(medic,"techniques","Accelerated Recovery");
     const Dialog=foundry.applications.api.DialogV2;
-    const saved={prompt:Dialog.prompt,confirm:Dialog.confirm,roll:game.swade.RollDialog.asPromise};
+    const saved={prompt:Dialog.prompt,confirm:Dialog.confirm,wait:Dialog.wait,roll:game.swade.RollDialog.asPromise};
     const flows=[];
     try {
       Dialog.prompt=async()=>new FormData();
       Dialog.confirm=async()=>true;
+      Dialog.wait=async()=>"apply";
       const totals=[6,7,7,8,8];
       game.swade.RollDialog.asPromise=async ctx=>{flows.push({label:ctx.flavor,mods:ctx.mods.map(m=>[m.label,m.value])});return {total:totals.shift()};};
       await patient.update({"system.wounds.value":3});
@@ -397,14 +402,15 @@ try {
       await untouched.update({"system.wounds.value":1});
       const totals2=[5,8];
       Dialog.confirm=async options=>options.yes.label==="Treatment time has passed";
+      Dialog.wait=async()=>null;
       game.swade.RollDialog.asPromise=async()=>({total:totals2.shift()});
       await qa.api.heal("water",medic,[untouched]);
       const declined=untouched.system.wounds.value===1 && !untouched.getFlag(qa.id,"treatments");
       return {mundane,water,recovery,flows,timers,blocked,declined};
-    } finally {Dialog.prompt=saved.prompt;Dialog.confirm=saved.confirm;game.swade.RollDialog.asPromise=saved.roll;}
+    } finally {Dialog.prompt=saved.prompt;Dialog.confirm=saved.confirm;Dialog.wait=saved.wait;game.swade.RollDialog.asPromise=saved.roll;}
   });
   assert.deepEqual([healing.mundane,healing.water,healing.recovery],[2,1,0]);
-  assert.deepEqual(healing.timers,["mundane","recovery","water"]);
+  assert.deepEqual(healing.timers,["mundane","water"]);
   assert.equal(healing.blocked,true);assert.equal(healing.declined,true);
   assert.ok(healing.flows[1].mods.some(([label,n])=>label==="No Power Points" && n===-2));
   assert.ok(healing.flows[4].mods.some(([label,n])=>label==="Accelerated Recovery" && n===4));

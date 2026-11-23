@@ -7,6 +7,12 @@ export const weaponKey = (element, kind, off) => `${element}-${kind}${off?"-off"
 export const weaponName = (element, kind, off) => `${ELEMENTS[element]} ${weaponKinds[kind]}${off?" (Off-Hand)":""}`;
 export const legacyWeaponName = (kind, off) => `Elemental ${weaponKinds[kind]}${off?" (Off Hand)":""}`;
 export const weaponKit = element => Object.keys(weaponKinds).flatMap(kind=>[false,true].map(off=>weaponKey(element,kind,off)));
+export const isElementalWeapon = item => item?.type==="weapon" &&
+  (["hurl","assault"].includes(flag(item,"weapon")) ||
+    /^(?:Elemental|Fire|Water|Earth) (?:Hurl|Assault)(?: \(Off[- ]Hand\))?$/i.test(item.name));
+export const naturalWeaponUpdate = item => isElementalWeapon(item) &&
+  (item.flags?.["swade-grid-inventory"]?.naturalWeapon!==true || item.flags?.["swade-grid-inventory"]?.placement)
+  ? {"flags.swade-grid-inventory.naturalWeapon":true,"flags.swade-grid-inventory.placement":null} : null;
 
 export function elementalPowerName(name, element) {
   if (!Object.hasOwn(ELEMENTS,element) || /\b(?:(?:fire|water|earth)(?:bending)?|air|ice|frost|flames?|lightning|lava|seismic)\b/i.test(name)) return name;

@@ -37,7 +37,11 @@ function engaged(caster,other) {
   if (!other.actor || !hostile(caster,other) || ["incapacitated","dead","stunned"].some(s=>other.actor.statuses.has(s))) return false;
   const dist = distance(caster,other);
   const reach = other.actor.statuses.has("reach") || (enabled(other.actor,"elementalReach") && other.actor.itemTypes.weapon?.some(w=>flag(w,"weapon")==="assault" && w.system.isReadied));
-  return dist<=1.001 || (reach && dist<=2.001);
+  const deadlyReach = Math.max(0,...[...other.actor.allApplicableEffects()].filter(e=>e.active).map(e=>{
+    const data=flag(e,"deadlyElements");
+    return data?.attack==="assault" && other.actor.itemTypes.weapon?.some(w=>flag(w,"weapon")==="assault" && w.system.isReadied) ? data.reach??0 : 0;
+  }));
+  return dist<=Math.max(reach?2:1,1+deadlyReach)+0.001;
 }
 function snapshot(actor,item,{kind,cast,options,context,message}={}) {
   const caster = actor.token ?? actor.getActiveTokens(false,true).find(t=>t.object?.controlled)

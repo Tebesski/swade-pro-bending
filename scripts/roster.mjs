@@ -40,6 +40,17 @@ export function useRosterFolders() {
 }
 
 export function installRosterPresentation() {
+  Hooks.once("ready", async () => {
+    const {coverAgainst,tokenCoverZones} = await import("../../swade-better-templates/scripts/cover.mjs");
+    Hooks.on("swadeCalculateDefaultAttackMods",(attacker,target,_skill,_item,ranged,_melee,_mods,best) => {
+      if (!ranged || !attacker || !flag(target?.actor,"roster") || !best.bestCover) return;
+      const dodge = target.actor.getSingleItemBySwid("dodge","edge");
+      // SWADE already chose Dodge over native cover. Better Templates applies its cover separately.
+      if (dodge && best.bestCover.label===dodge.name && coverAgainst(tokenCoverZones(attacker),tokenCoverZones(target))) {
+        best.bestCover = null;
+      }
+    });
+  });
   Hooks.on("preUpdateActor", (actor, changed) => {
     if (!flag(actor,"roster") || actor.type!=="npc") return;
     const value = changed["system.advances.value"] ?? changed.system?.advances?.value;

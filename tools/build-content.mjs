@@ -6,6 +6,14 @@ import {iconFor} from "./icons.mjs";
 import {effectChanges} from "../scripts/effect-data.mjs";
 import {ELEMENTS, weaponKey, weaponName} from "../scripts/bending-data.mjs";
 import {buildProBenders} from "./pro-benders.mjs";
+import {installedTechniques} from "./installed-techniques.mjs";
+import {TRAIT_MACRO_ID, traitAction} from "../scripts/trait-effects.mjs";
+import {DEADLY_MACRO_ID, DEADLY_ICON, deadlyAction} from "../scripts/deadly-elements.mjs";
+import {maneuverAction,maneuverMacro,MANEUVER_DESCRIPTION} from "../scripts/maneuver.mjs";
+import {advancedActions,advancedMacros,protectionArea,surfDocument} from "../scripts/advanced-manipulation.mjs";
+import {analyseAction,analyseMacro} from "../scripts/analyse-foe.mjs";
+import {awarenessAction,awarenessMacro} from "../scripts/awareness.mjs";
+import {bendingAreaConfig,areaResolverMacro} from "../scripts/bending-areas.mjs";
 
 const rules = JSON.parse(readFileSync(new URL("../content/avatar.json", import.meta.url)));
 const stable = key => createHash("sha256").update(`avatar:${key}`).digest("hex").slice(0,16);
@@ -212,7 +220,8 @@ for (const element of Object.keys(ELEMENTS)) for (const [kind,trait,damage,range
     item("bending-kit",key,weaponName(element,kind,off),"weapon",
       {category:"Natural Weapons",description:`<p>${trait}. ${ELEMENTS[element]} natural weapon. Use any trapping available to your bending background.</p>`,
         damage,rangeType,range,rof:1,weight:0,price:0,quantity:1,equippable:true,equipStatus:off?2:4,actions:{trait},favorite:true},
-      {meta:{weapon:kind,off,element},flags:{[EFFECTS]:{tags:["elemental-weapon",`elemental-${kind}`,element]}},folder:weaponsFolder});
+      {meta:{weapon:kind,off,element},flags:{[EFFECTS]:{tags:["elemental-weapon",`elemental-${kind}`,element]},
+        "swade-grid-inventory":{naturalWeapon:true}},folder:weaponsFolder});
   }
 }
 const groups = Object.fromEntries(["Universal","Earth","Fire","Water"].map(name=>[name,folder("techniques",name,name==="Universal"?"#575981":"#335463")]));
@@ -273,7 +282,7 @@ for (const row of rules.powers) {
   if (raisedDamage.has(key)) flags[POWERS].powerRaises=[{id:"raise-1",level:1,changes:[damageAdd("raise-damage","1d6")]}];
   const applied = {"deadly-elements":["deadly","deadly-raise"],"earth-armour":["earth-armour","earth-armour-raise"],
     "water-armour":["ice-armour","ice-armour-raise"],quicken:["quicken","quicken-raise"],havoc:["havoc"],paralysis:["paralysis"],"elemental-vortex":["vortex"]}[key];
-  if (applied) flags[POWERS].applyEffects={base:uuid("effects",applied[0]),...(applied[1]?{raised:uuid("effects",applied[1])}:{})};
+  if (applied && key!=="deadly-elements") flags[POWERS].applyEffects={base:uuid("effects",applied[0]),...(applied[1]?{raised:uuid("effects",applied[1])}:{})};
   if (shapes.length) {
     const d = Number(row.duration?.match(/^\d+(?=\s*round|$)/)?.[0]);
     const unit = row.duration==="1 day" ? "days":"rounds";
@@ -290,13 +299,41 @@ for (const row of rules.powers) {
   item("techniques",key,rename[key] ?? row.name,"power",{
     description,rank:row.rank ?? "",pp:2*Math.abs(Number(row.penalty?.match(/^-?\d+/)?.[0] ?? 0)),
     range:row.range?.replace("Spirit","@spi") ?? "",duration:row.duration ?? "",trapping:row.trapping ?? row.trappings ?? "",
-    arcane:element==="universal" ? "Bending" : `${row.group}bending`,actions:{trait:key==="knacks"?"":"Bending",...(["healing","accelerated-recovery","water-bubble"].includes(key)?{additional:{tableAction:{
+    arcane:element==="universal" ? "Bending" : `${row.group}bending`,actions:{trait:key==="knacks"?"":"Bending",...(key==="boost-lower-trait"?{additional:{traitEffect:traitAction}}:{}),...(key==="deadly-elements"?{additional:{deadlyElements:deadlyAction}}:{}),...(["healing","accelerated-recovery","water-bubble"].includes(key)?{additional:{tableAction:{
       name:key==="water-bubble"?"Sustain Bubble":"Treat Patient",type:"macro",macroActor:"self",
       uuid:uuid("macros",{"healing":"water-healing","water-bubble":"sustain-bubble"}[key]??key,"Macro")}}}:{})},
     innate:key==="knacks",damage:coreDamage[key] ?? "",templates:Object.fromEntries(shapes.map(s=>[s,true]))
   },{folder:groups[row.group],flags,meta:{technique:true,element,
     mode:shapes.length&&!["earth-shelter","water-shelter","damage-field"].includes(key)?"area":targetModes[key]??(row.range==="Self"?"self":"targets"),
     sourcePenalty:row.penalty, areaOptions:pendingArea.has(key)}});
+  if(key==="advanced-elemental-manipulation") {
+    const technique=pack.techniques.at(-1);
+    technique.system.actions.additional=advancedActions;
+    technique.flags[TEMPLATES]={automation:protectionArea()};
+    technique.flags[ID].advancedRevision=1;
+  }
+  if(key==="analyse-foe")pack.techniques.at(-1).system.actions.additional={analyse:analyseAction};
+  if(key==="awareness")pack.techniques.at(-1).system.actions.additional={awareness:awarenessAction};
+  if(["elemental-barrage","elemental-vortex","earth-entangle","water-entangle"].includes(key)){
+    const technique=pack.techniques.at(-1);
+    technique.flags[TEMPLATES]={automation:bendingAreaConfig(key)};
+    technique.flags[ID].bendingAreaRevision=1;
+    delete technique.flags[POWERS].applyEffects;
+    if(key==="elemental-barrage"){
+      technique.flags[POWERS].powerModifiers=[];technique.flags[POWERS].powerRaises=[];
+      technique.system.templates={cone:true};
+    }else technique.system.templates={small:true};
+    if(["earth-entangle","water-entangle"].includes(key)){
+      technique.flags[ID].areaOptions=false;
+      technique.flags[POWERS].powerModifiers=bendingAreaConfig(key).modifiers.map(m=>({...m,options:m.options.map(({changes,...option})=>option)}));
+    }
+  }
+  if(key==="elemental-maneuver") {
+    const technique=pack.techniques.at(-1);
+    technique.system.actions.additional={maneuver:maneuverAction};
+    technique.system.description=MANEUVER_DESCRIPTION;
+    technique.flags[ID].maneuverRevision=2;
+  }
 }
 add("techniques", JSON.parse(readFileSync(new URL("../content/puppet.json", import.meta.url))));
 const commands = {
@@ -320,6 +357,24 @@ if (!api) return ui.notifications.warn("Enable SWADE Pro-Bending first.");
 try { await api.signatureAction(typeof item === "undefined" ? null : item, "${command}"); }
 catch (error) { ui.notifications.warn(error.message); }`});
 }
+add("macros",{_id:TRAIT_MACRO_ID,name:"Boost / Lower Trait",type:"script",scope:"global",img:"icons/svg/upgrade.svg",
+  flags:{[ID]:{key:"boost-lower-trait",contentRevision:revision}},
+  command:`const api = game.modules.get("${ID}")?.api;
+if (!api) return ui.notifications.warn("Enable SWADE Pro-Bending first.");
+try { await api.boostLowerTrait(typeof actor === "undefined" ? undefined : actor); }
+catch (error) { ui.notifications.error(error.message, {console:true}); }`});
+add("macros",{_id:DEADLY_MACRO_ID,name:"Deadly Elements",type:"script",scope:"global",img:DEADLY_ICON,
+  flags:{[ID]:{key:"deadly-elements",contentRevision:revision}},
+  command:`const api = game.modules.get("${ID}")?.api;
+if (!api) return ui.notifications.warn("Enable SWADE Pro-Bending first.");
+try { await api.deadlyElements(typeof actor === "undefined" ? undefined : actor); }
+catch (error) { ui.notifications.error(error.message, {console:true}); }`});
+add("macros",maneuverMacro());
+for(const macro of advancedMacros())add("macros",macro);
+add("effects",surfDocument());
+add("macros",analyseMacro());
+add("macros",awarenessMacro());
+add("macros",areaResolverMacro());
 add("rules",{_id:stable("rules/avatar"),name:"Avatar: Pro-Bending",pages:[
   {name:"At the Table",text:{format:1,content:`<h2>Getting started</h2><p>Drop a Nation and (for a bender) a Bending Background onto the actor. ${link("macros","setup","Avatar Setup","Macro")} handles your choices and can replace missing starter items or rule effects. Learn further Techniques by dragging them onto the sheet.</p>
   <p>A Bending Background grants Hurl and Assault for its element in both hands. Adding a generically named power to the actor's sheet adds the element to its name.</p>
@@ -330,5 +385,16 @@ add("rules",{_id:stable("rules/avatar"),name:"Avatar: Pro-Bending",pages:[
   {name:"Setting Rules",text:{format:1,content:rules.rules}},
   {name:"Character Questions",text:{format:1,content:rules.questions}}
 ].map(page=>({...page,_id:stable(`rules/page/${page.name}`),type:"text",title:{show:true,level:1}}))});
-pack["pro-benders"] = buildProBenders(pack,stable,uuid);
-writeFileSync(new URL("../content/packs.json",import.meta.url),JSON.stringify(pack,null,2)+"\n");
+const installedIndex = process.argv.indexOf("--installed-roster");
+if (installedIndex!==-1) {
+  // Export just the NPCs when they refer to a GM's edited packs. A full from-source
+  // build uses its own Technique and Effect UUIDs and remains self-contained.
+  const output = process.argv[installedIndex+1];
+  if (!output) throw new Error("--installed-roster requires an output JSON path.");
+  const techniques = await installedTechniques(pack.techniques);
+  const roster = buildProBenders({...pack,techniques},stable,uuid);
+  writeFileSync(output,JSON.stringify(roster,null,2)+"\n");
+} else {
+  pack["pro-benders"] = buildProBenders(pack,stable,uuid);
+  writeFileSync(new URL("../content/packs.json",import.meta.url),JSON.stringify(pack,null,2)+"\n");
+}

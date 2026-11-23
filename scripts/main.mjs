@@ -1,10 +1,17 @@
 import {ID, dialog, report} from "./shared.mjs";
 import {applyEffect, changeStance, chooseStance, initializeCharacters, installCharacter, setup} from "./character.mjs";
 import {installCombat, reviewLatest, reviewMartial, sustainBubble} from "./combat.mjs";
-import {heal} from "./healing.mjs";
+import {heal, installHealing} from "./healing.mjs";
 import {installPresentation, migrateAvatarContent} from "./presentation.mjs";
 import {installRosterPresentation, useRosterFolders} from "./roster.mjs";
 import {installSignatureActions, signatureAction} from "./signatures.mjs";
+import {boostLowerTrait, installTraitEffects} from "./traits.mjs";
+import {deadlyElements, installDeadlyElements} from "./deadly-elements.mjs";
+import {elementalManeuver,installManeuver} from "./maneuver.mjs";
+import {elementalProtection,areaProtection,elementalSurf,installAdvancedManipulation} from "./advanced-manipulation.mjs";
+import {analyseFoe,installAnalyseFoe} from "./analyse-foe.mjs";
+import {awareness,installAwareness} from "./awareness.mjs";
+import {resolveBendingArea,installBendingAreas} from "./bending-areas.mjs";
 
 async function worldSettings() {
   if (!game.user.isGM) throw new Error("Only a GM can change world settings.");
@@ -26,8 +33,16 @@ Hooks.once("setup",()=>{
   installPresentation();
   installRosterPresentation();
   installSignatureActions();
+  installHealing();
+  installTraitEffects();
+  installDeadlyElements();
+  installManeuver();
+  installAdvancedManipulation();
+  installAnalyseFoe();
+  installAwareness();
+  installBendingAreas();
   game.modules.get(ID).api = Object.freeze({setup,changeStance,chooseStance,applyEffect,
-    reviewMartial,reviewLatest,sustainBubble,heal,worldSettings,signatureAction});
+    reviewMartial,reviewLatest,sustainBubble,heal,worldSettings,signatureAction,boostLowerTrait,deadlyElements,elementalManeuver,elementalProtection,areaProtection,elementalSurf,analyseFoe,awareness,resolveBendingArea});
 });
 Hooks.once("ready",()=>{
   // SWADE's alternate compendium view groups Actors by type and hides their folders.

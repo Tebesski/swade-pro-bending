@@ -49,37 +49,37 @@ const nativeChange = (key,value,type="add")=>({key,value:String(value),type,phas
 const roll = (name,instruction)=>({skill:name,instruction});
 
 const signatures = {
-  slip:[roll("Athletics","When an opponent follows you or blocks your retreat, feint one way and slip past them. This button opens an Athletics roll with +2. Use the result to resolve the escape or maneuver at the table."),
-    [],[["skill:Athletics",2,condition()]]],
-  "feint-shot":[{targetStatus:"distracted",instruction:"After your Test makes an opponent Distracted, target them and use this Action. Your next Hurl attack against that opponent gets +1 to hit. End the effect after rolling the attack."},
+  slip:[roll("Athletics","When someone cuts off your retreat, roll Athletics at +2 to slip past."),
+    [],[["skill:Athletics",2,condition({op:"flag",source:"roll",flag:"signature-move"})]]],
+  "feint-shot":[{targetStatus:"distracted",instruction:"After your Test distracts a foe, target them. Your next Hurl against them gets +1 to hit."},
     [],[["global:attack",1,condition(itemFlag("elemental-hurl"),targetFlag("distracted"))]]],
-  brace:[{instruction:"Plant your feet to hold your ground. Gain +1 Toughness until you move or start your next turn. If you move early, use End effect before moving."},
+  brace:[{instruction:"Hold your ground for +1 Toughness. End the effect if you move."},
     [nativeChange("system.stats.toughness.value",1)],[]],
-  support:[roll("Eloquence","Call a warning or give a clear signal to help a teammate with their next action. This button opens an Eloquence roll with +2. Apply the normal SWADE Support result to the teammate you chose."),
-    [],[["skill:Eloquence",2,condition()]]],
-  close:[{stance:"offensive",instruction:"Commit to a close-range strike in Offensive Stance. Roll one Assault, then add +2 to its damage if it hits. End the effect after damage or as soon as the attack misses."},
+  support:[{...roll("Eloquence","Choose a teammate and the Trait you want to Support. Roll Eloquence at +2 and apply the Support result."),support:true},
+    [],[["skill:Eloquence",2,condition({op:"flag",source:"roll",flag:"signature-move"})]]],
+  close:[{stance:"offensive",instruction:"In Offensive Stance, add +2 damage to one Assault that hits."},
     [],[["outgoing-damage",2,condition(itemFlag("elemental-assault"),stanceFlag("offensive"))]]],
-  cover:[{stance:"defensive",instruction:"Use this when you take cover in Defensive Stance. Ranged attacks against you take an additional −1 until the start of your next turn. End the effect early if you leave cover."},
+  cover:[{stance:"defensive",instruction:"Take cover in Defensive Stance. Ranged attacks against you take an extra −1. End the effect if you leave cover."},
     [],[["target-roll:targetAttackRanged",-1,condition(stanceFlag("defensive"))]]],
-  recovery:[{recovery:true,instruction:"If you are Shaken or Stunned, use this on your turn before rolling recovery. Your next Spirit roll to recover from Shaken or Vigor roll to recover from Stunned gets +2. Resolve the normal recovery and then end this effect."},
+  recovery:[{recovery:true,instruction:"Use before rolling to recover from Shaken or Stunned. Add +2 to that recovery roll."},
     [nativeChange("system.attributes.spirit.unShakeBonus",2),nativeChange("system.attributes.vigor.unStunBonus",2)],[]],
-  "long-shot":[{stance:"balanced",instruction:"Stay in place in Balanced Stance and line up an opponent at Hurl's Long Range. Add +2 to that Hurl attack. Use the usual range penalty and end the effect after the attack roll."},
+  "long-shot":[{stance:"balanced",instruction:"Stand still in Balanced Stance. Add +2 to one Hurl at Long Range."},
     [],[["global:attack",2,condition(itemFlag("elemental-hurl"),stanceFlag("balanced"))]]],
-  counter:[{instruction:"When a foe misses you in melee, use the opening for an Assault against that foe. Add +2 to that attack roll, then end the effect. Spend an action or use a reaction you already have."},
+  counter:[{instruction:"After a foe misses you in melee, add +2 to one Assault against them. Spend an action or use an available Counterattack."},
     [],[["global:attack",2,condition(itemFlag("elemental-assault"))]]],
-  cast:[{stance:"balanced",instruction:"Set up an offensive Technique from Balanced Stance. Add +1 to the activation roll of one Technique flagged offensive-technique, then end this effect."},
+  cast:[{stance:"balanced",instruction:"In Balanced Stance, add +1 to one offensive Technique roll."},
     [],[["global:trait",1,condition(itemFlag("offensive-technique"),stanceFlag("balanced"))]]],
-  mark:[{targetStatus:"vulnerable",instruction:"Target a Vulnerable opponent and aim a Hurl at the opening in their guard. If the Hurl hits, add +2 to its damage against that opponent. End the effect after damage or as soon as the attack misses."},
+  mark:[{targetStatus:"vulnerable",instruction:"Target a Vulnerable foe. Add +2 damage to your next Hurl against them if it hits."},
     [],[["outgoing-damage",2,condition(itemFlag("elemental-hurl"),targetFlag("vulnerable"))]]],
-  opening:[{stance:"balanced",instruction:"Use this before your first Hurl of the exchange in Balanced Stance. Add +1 to that Hurl attack, then end the effect after rolling to hit."},
+  opening:[{stance:"balanced",instruction:"In Balanced Stance, add +1 to your opening Hurl attack roll."},
     [],[["global:attack",1,condition(itemFlag("elemental-hurl"),stanceFlag("balanced"))]]],
-  takedown:[{targetStatus:"distracted",instruction:"After forcing a foe out of position, use this if they are Distracted. Target them and add +2 to the activation roll of one offensive Technique against them. End the effect after that roll."},
+  takedown:[{targetStatus:"distracted",instruction:"Target a Distracted foe you forced out of position. Add +2 to one offensive Technique roll against them."},
     [],[["global:trait",2,condition(itemFlag("offensive-technique"),targetFlag("distracted"))]]],
-  footwork:[{instruction:"When changing lanes or crossing to a new position, increase your ground Pace by 2 for this move. End the effect when you finish moving."},
+  footwork:[{instruction:"Gain +2 Pace for one move."},
     [nativeChange("system.pace.ground",2)],[]],
-  switch:[{instruction:"When an opponent commits to one route, take a different one. Gain +1 ground Pace for this move and +1 to Athletics if an obstacle calls for a roll. End the effect when you finish moving."},
+  switch:[{instruction:"Change lanes. Gain +1 Pace for this move and +1 to Athletics to clear an obstacle."},
     [nativeChange("system.pace.ground",1)],[["skill:Athletics",1,condition()]]],
-  champion:[{stance:"balanced",instruction:"At the opening of the final round, throw one Hurl from Balanced Stance. Add +1 to the attack roll and +2 to damage on a hit. End the effect after damage or as soon as the attack misses."},
+  champion:[{stance:"balanced",instruction:"Open the final round in Balanced Stance. Add +1 to one Hurl attack and +2 damage if it hits."},
     [],[["global:attack",1,condition(itemFlag("elemental-hurl"),stanceFlag("balanced"))],
       ["outgoing-damage",2,condition(itemFlag("elemental-hurl"),stanceFlag("balanced"))]]]
 };
@@ -89,7 +89,7 @@ const rankFor = advances=>RANKS[Math.floor(advances/4)];
 const edgeMinimums = {
   acrobat:{skills:{Athletics:8},attributes:{agility:8}},"free-runner":{skills:{Athletics:6},attributes:{agility:8}},
   extraction:{attributes:{agility:8}},"fleet-footed":{attributes:{agility:6}},quick:{attributes:{agility:8}},
-  marksman:{skills:{Shooting:8}},block:{skills:{Fighting:8}},counterattack:{skills:{Fighting:8}},"martial-artist":{skills:{Fighting:6}},
+  dodge:{attributes:{agility:8}}, marksman:{skills:{Shooting:8}},block:{skills:{Fighting:8}},counterattack:{skills:{Fighting:8}},"martial-artist":{skills:{Fighting:6}},
   calculating:{attributes:{smarts:8}},"level-headed":{attributes:{smarts:8}},command:{attributes:{smarts:6}},
   "hold-the-line":{attributes:{smarts:8}},tactician:{attributes:{smarts:8},skills:{Battle:6}},
   investigator:{attributes:{smarts:8},skills:{Research:8}},streetwise:{attributes:{smarts:6}},
@@ -105,13 +105,19 @@ const nativeSeasoned = new Set(["block","combat-acrobat","combat-reflexes","coun
 
 // Adjustments from the Better Setting benchmark, keeping the league's wound and Wild Card rules fixed.
 const leagueAdjustments = {
+  "Tao Ren":{skills:{Shooting:6}}, "Kezan":{skills:{Shooting:8}},
+  "Hamu":{powers:["elemental-maneuver","jet","impede"]},
+  "Vakka of the South":{powers:["water-armour","relief","launch","advanced-elemental-manipulation"]},
+  "Sialiq":{powers:["elemental-maneuver","quicken","impede","water-entangle"]},
+  "Zerika Ito":{powers:["launch","elemental-barrage","analyse-foe","deadly-elements"]},
+  "Yun-Seo Min":{edges:["close-combat-specialist","brave"]},
   "Aseno Hase":{skills:{Shooting:8}}, "Aputik":{skills:{Shooting:8}},
   "Ikkat":{skills:{Shooting:8}}, "Yori":{skills:{Shooting:6}},
-  "Tullik":{skills:{Shooting:10},armor:2}, "Wen Qing":{skills:{Shooting:8}}, "Akemi Tada":{armor:2},
-  "Nuvak of the North":{skills:{Shooting:12}}, "Xiulan":{skills:{Shooting:10},armor:1},
-  "Azuna Hayase":{skills:{Shooting:10}}, "Saaniq":{skills:{Shooting:10}},
-  "Arnaq":{skills:{Shooting:12},armor:2}, "Meiko":{skills:{Shooting:10}},
-  "Zairen Inoue":{armor:1}, "Jian Zhen":{parry:0,skills:{Shooting:10}}, "Luak":{skills:{Shooting:10}}, "Ming Lan":{skills:{Shooting:10}},
+  "Tullik":{skills:{Shooting:10},armor:2,edges:["close-combat-specialist","reliable","efficient-bending"]}, "Wen Qing":{skills:{Shooting:8}}, "Akemi Tada":{armor:2},
+  "Nuvak of the North":{skills:{Shooting:10},powers:["water-move","water-entangle","impede","launch"]}, "Xiulan":{skills:{Shooting:10},armor:1},
+  "Azuna Hayase":{skills:{Shooting:10}}, "Saaniq":{skills:{Shooting:10},extraEdges:["deadly-hurl"]},
+  "Arnaq":{skills:{Shooting:10},armor:2,powers:["elemental-maneuver","water-entangle","impede","water-armour"]}, "Meiko":{skills:{Shooting:10},extraEdges:["deadly-hurl"]},
+  "Zairen Inoue":{armor:1}, "Jian Zhen":{parry:0,skills:{Shooting:10}}, "Luak":{skills:{Shooting:10},armor:2}, "Ming Lan":{skills:{Shooting:10}},
   "Raezan Kaji":{skills:{Shooting:12}}, "Vakka of the South":{skills:{Shooting:10}}
 };
 
@@ -140,9 +146,10 @@ export function buildProBenders(packs, stable, uuid) {
     const id = key=>stable(`pro-benders/${data.key ?? name}/${key}`);
     const owned = (p,key) => {
       const doc = structuredClone(find(p,key));
+      const sourceId = doc._id;
       doc._id = id(key);
       doc.folder = null;
-      doc._stats = {compendiumSource:uuid(p,key)};
+      doc._stats = {compendiumSource:`Compendium.${ID}.${p}.Item.${sourceId}`};
       return doc;
     };
     const {preset,focus,label,skills:primarySkills}=roles[role];
@@ -154,28 +161,36 @@ export function buildProBenders(packs, stable, uuid) {
     draft.attributes.vigor = die(data.vigor ?? Math.min(10,(role==="anchor"?8:6)+2*level));
     draft.attributes.strength = die(data.strength ?? Math.min(10,(role==="anchor"?8:6)+2*Number(level===2)));
     draft.attributes.spirit = die(data.spirit ?? Math.min(10,(["controller","medic"].includes(role)?8:6)+2*Number(level>0)));
-    const edgeKeys = [...new Set([...(element==="water"?["fluid-stance"]:[]),...data.edges])];
+    const edgeKeys = [...new Set(data.edges)];
+    const allowedStances = [element==="earth"?"Defensive":"Offensive","Hybrid"];
+    const startingStance = element==="water" ? "fluid-stance" : edgeKeys.find(key=>
+      allowedStances.includes(flag(packs.edges.find(edge=>flag(edge,"key")===key),"stance"))) ??
+      (element==="earth" ? (role==="anchor"?"mountain-stance":"turtle-shell") :
+        (role==="runner"?"hampering-stance":"elemental-onslaught"));
+    if (!edgeKeys.includes(startingStance)) edgeKeys.unshift(startingStance);
+    if (edgeKeys.includes("improved-extraction") && !edgeKeys.includes("extraction")) edgeKeys.push("extraction");
     for (const edge of edgeKeys) {
       const {attributes={},skills:needed={}} = edgeMinimums[edge] ?? {};
       for(const [key,sides] of Object.entries(attributes)) if (draft.attributes[key].sides<sides) draft.attributes[key]=die(sides);
       for(const [key,sides] of Object.entries(needed)) skills[key]=Math.max(skills[key]??0,sides);
     }
+    if (data.powers.includes("healing")) skills.Healing ??= 6;
     const skillForSignature = signature && signatures[signature[1]][0].skill;
     if (skillForSignature) skills[skillForSignature] ??= secondary;
-    draft.initiative = {hasQuick:edgeKeys.includes("quick"),hasLevelHeaded:edgeKeys.includes("level-headed"),hasHesitant:data.hindrance[0]==="hesitant"};
-    if (edgeKeys.includes("fleet-footed")) {
-      draft.ground = 8;
-      draft.run = 8;
-    }
+    // Keep Pace and initiative bonuses on their own items so the GM can switch them off.
+    draft.ground = 6;
     const training = owned("backgrounds",`${element}bending`);
     const choices = [...new Set(data.powers)].filter(key=>!["knacks","basic-elemental-manipulation"].includes(key));
+    if (choices.length<3) throw new Error(`${name} needs three background Techniques.`);
     training.flags[ID].initialized = true;
     training.flags[ID].choices = {techniques:choices.slice(0,3).map(key=>find("techniques",key)._id),
-      stance:edgeKeys.find(key=>packs.edges.some(edge=>flag(edge,"key")===key && flag(edge,"stance"))) ?? ""};
+      stance:find("edges",startingStance)._id};
     const powers = ["knacks","basic-elemental-manipulation",...choices].map(key=>{
       const item = owned("techniques",key);
       const required = levelOf(item.system.rank);
-      if (required>level) throw new Error(`${name} cannot take ${item.name} at ${rank}`);
+      if (required<0 || required>level || !["universal",element].includes(flag(item,"element"))) {
+        throw new Error(`${name} cannot take ${item.name} at ${rank}`);
+      }
       item.name = elementalPowerName(item.name,element);
       item.system.arcane = training.name;
       if (edgeKeys.includes("bending-mastery") && key===choices[0]) item.flags[EFFECTS].tags.push("mastered-technique-2");
@@ -193,15 +208,27 @@ export function buildProBenders(packs, stable, uuid) {
       const [name,description,change] = coreEdges[key];
       if (level<(key==="improved-block"?2:Number(nativeSeasoned.has(key)))) throw new Error(`Rank too low for ${name}`);
       const img = "icons/svg/upgrade.svg";
-      const effects = change?[nativeEffect(key,name,img,[nativeChange(change.path,change.value)],description)]:[];
-      if (["dodge","combat-acrobat"].includes(key)) effects.push(nativeEffect(key,name,img,
-        [nativeChange(`system.stats.globalMods.${key==="dodge"?"targetAttackRanged":"targetAttack"}`,key==="dodge"?-2:-1)],description));
+      const changes = change ? [nativeChange(change.path,change.value,change.type)] : [];
+      const rules = [];
+      if (key==="combat-reflexes") changes.push(nativeChange("system.attributes.vigor.unStunBonus",2));
+      if (["block","improved-block"].includes(key)) changes.push(nativeChange("system.stats.globalMods.gangUpDefend",1));
+      if (key==="fleet-footed") changes.push(nativeChange("system.pace.ground",2),nativeChange("system.pace.running.die",2));
+      if (key==="strong-willed") for (const attribute of ["smarts","spirit"]) rules.push({
+        selector:`attribute:${attribute}`,type:"add",value:2,predicate:{op:"flag",source:"opposed",flag:"test"}});
+      // SWADE resolves Dodge and Combat Acrobat from the Edge swid on a targeted attack.
+      const effects = [];
+      if (changes.length || rules.length) {
+        const {system,conditions} = effectChanges(changes,rules);
+        const effect = nativeEffect(key,name,img,system.changes,description);
+        if (rules.length) effect.flags = {[EFFECTS]:{conditions}};
+        effects.push(effect);
+      }
       return {_id:id(`edge/${key}`),type:"edge",name,img,effects,system:{swid:key,source:"SWADE",description:text(description)}};
     });
     const [hindranceKey,flaw] = data.hindrance;
     const {name:flawName,major,change:flawChange}=hindrances[hindranceKey];
     const flawIcon = "icons/svg/hazard.svg";
-    const flawEffects = flawChange?[nativeEffect(hindranceKey,flawName,flawIcon,[nativeChange(flawChange.path,flawChange.value)],flaw)]:[];
+    const flawEffects = flawChange?[nativeEffect(hindranceKey,flawName,flawIcon,[nativeChange(flawChange.path,flawChange.value,flawChange.type)],flaw)]:[];
     const flawItem = {_id:id("hindrance"),name:flawName,type:"hindrance",img:flawIcon,effects:flawEffects,
       system:{swid:slug(flawName),major,severity:major?"major":"minor",description:text(flaw)}};
     const items = [training,...Object.entries(skills).map(([name,sides])=>{
@@ -209,6 +236,8 @@ export function buildProBenders(packs, stable, uuid) {
       const source = packs["bending-kit"].some(doc=>flag(doc,"key")===key) ? owned("bending-kit",key) : {
         _id:id(key),name,type:"skill",img:"icons/svg/book.svg",system:{swid:key,attribute:"smarts"}
       };
+      // Healing is both a skill and a Technique. They must survive packing as separate documents.
+      if (powers.some(power=>power._id===source._id)) source._id = id(`skill/${key}`);
       source.system.die = die(sides);
       return source;
     }),...weaponKit(element).map(key=>owned("bending-kit",key)),...edges,flawItem,...powers,
@@ -216,7 +245,7 @@ export function buildProBenders(packs, stable, uuid) {
     const entryId = id("casting");
     const stats = {...draft,name,rank,role:preset,archetypeLabel:team?`${team} · ${captain?"Captain":label}`:title,
       wildcard,resilience:wildcard?0:wounds,bennies:data.bennies??2,armor,parry,core:false,cr:null,folder,
-      disposition:match||data.hostile ? -1 : 0,tags:team?["pro-bender",slug(team)]:["republic-city",slug(title)],
+      disposition:match||data.hostile ? -1 : 0,tags:team?["pro-bender",slug(team)]:[data.roster==="solo"?"solo-bender":"republic-city",slug(title)],
       spellcasting:{[entryId]:{id:entryId,name:training.name,trait:"Bending",points:10,rule:"no-pp"}}};
     const img = `icons/equipment/head/${portraits[element][step(3,seed)]}.webp`;
     let counter = 0;
@@ -258,14 +287,13 @@ export function buildProBenders(packs, stable, uuid) {
       const [name,key] = signature;
       const [{instruction,...options},changes,rules] = signatures[key];
       const period = match?"bout":"scene";
-      const explanation = name==="Undertow Feint"
-        ? "Nanuq makes the pursuer think she is retreating straight back, then cuts sideways with a short sweep of water. Use it when someone follows her retreat or tries to cut it off. Roll Athletics at +2 to slip past or break pursuit."
-        : instruction;
-      const description = text(explanation)+text(`Once per ${period}. Post this Action to chat to find End effect and Reset use. Reset before the next ${period}.`) +
-        (options.skill ? text("Use opens the roll and automatically clears the bonus when the roll closes.")
-          : text("Use applies the effect. Choose End effect at the point described above. In combat it also expires at the start of your next turn."));
+      const explanation = instruction;
+      const end = options.skill ? "" : " Choose End effect after use.";
+      const description = text(explanation)+text(`Once per ${period}.${end} Reset before the next ${period}.`);
       const {system,conditions} = effectChanges(changes,rules.map(([selector,value,predicate])=>({selector,value,predicate,type:"add"})));
-      const img = iconFor("backgrounds",slug(training.name));
+      const img = `icons/svg/${({slip:"wingfoot","feint-shot":"target",brace:"shield",support:"sound",close:"combat",cover:"shield",
+        recovery:"regen","long-shot":"target",counter:"thrust",cast:"aura",mark:"eye",opening:"target",takedown:"falling",
+        footwork:"wingfoot",switch:"direction",champion:"target"})[key]}.svg`;
       const macros = Object.fromEntries([["Use","Use"],["Finish","End effect"],["Reset","Reset use"]].map(([key,label])=>
         [`signature${key}`,{name:label,type:"macro",macroActor:"self",uuid:uuid("macros",`signature-${key.toLowerCase()}`,"Macro")}]));
       actor.items.push({_id:id("signature-action"),name,type:"action",img,system:{description,category:"Signature Move",source:"Avatar",
@@ -273,6 +301,7 @@ export function buildProBenders(packs, stable, uuid) {
         effects:[{_id:id("signature"),name,type:"base",disabled:true,transfer:false,showIcon:0,
           img,description:text(explanation),system,flags:{[EFFECTS]:{conditions}}}]});
     }
+    if (new Set(actor.items.map(item=>item._id)).size!==actor.items.length) throw new Error(`Duplicate item ID on ${name}`);
     documents.push(actor);
   }
 
@@ -301,8 +330,9 @@ export function buildProBenders(packs, stable, uuid) {
       const primary = champion?12:Math.min(12,8+2*division-2*Number(division===0 && !captain && i%2===0));
       const skills = {[skill]:Math.min(12,6+2*level+2*Number(captain&&skill!=="Shooting"))};
       if (division>=2) skills.Shooting = champion ? 12 : role==="shooter"?primary:Math.max(8,primary-2);
-      const {skills:skillAdjustments,...adjustments} = leagueAdjustments[name] ?? {};
+      const {skills:skillAdjustments,extraEdges=[],...adjustments} = leagueAdjustments[name] ?? {};
       Object.assign(skills,skillAdjustments);
+      edges.push(...extraEdges);
       addNpc({name,key:`team/${slug(team)}/${element}`,documentId:teamActorIds[i][slot],element,role,advances,wildcard,wounds:tier.wounds[tierSlot],
         captain,champion,armor:division>=2&&captain?2:1,parry:champion?1:0,primary,skills,edges,powers,
         team,tier:tier.name,title:`${team} · ${captain?"Captain":roles[role].label}`,appearance,tactics,hindrance:[flaw,flawText],
@@ -316,7 +346,7 @@ export function buildProBenders(packs, stable, uuid) {
       if (Array.isArray(data)) addDistrict(data,sub,slot);
       else {
         addNpc({...data,roster:"city",hostile:name.includes("Triad")},sub,slot,i+slot);
-        if (data.mecha) documents.push(makeMecha(data.mecha,sub,stable));
+        if (data.mecha) documents.push(makeMecha(data.mecha,sub,stable,documents.at(-1)));
       }
     }
   }
@@ -324,7 +354,7 @@ export function buildProBenders(packs, stable, uuid) {
   return documents;
 }
 
-function makeMecha(role, folder, stable) {
+function makeMecha(role, folder, stable, pilot) {
   const fire = role==="Fire support";
   const name = `${role} mecha tank`;
   const img = "icons/svg/clockwork.svg";
@@ -333,8 +363,10 @@ function makeMecha(role, folder, stable) {
       isVehicular:true,actions:{trait:"Vehicles"}},effects:[]});
   return {_id:stable(`pro-benders/mecha/${role}`),name,type:"vehicle",img,folder,sort:900000,
     prototypeToken:{name,width:2,height:2,texture:{src:img}},
-    system:{size:4,wounds:{max:3},driver:{skill:"Vehicles"},description:text(fire?
-      "Field its 4th Battalion crew. Uses a ranged launcher.":"Field its 5th Battalion crew. Built for clearing wreckage."),
+    system:{size:4,wounds:{max:3},driver:{skill:"Vehicles"},description:
+      text(fire?"The launcher sits above the right shoulder. The crew keeps it behind the line and fires down open lanes.":
+        "A short grapple arm and broad feet let it lift wreckage. It needs to close the distance to use the arm.")+
+      `<p>Assign @UUID[Compendium.${ID}.pro-benders.Actor.${pilot._id}]{${escape(pilot.name)}} as driver. Roll Vehicles for the mounted weapon.</p>`,
       classification:"Mecha tank",toughness:{total:11,armor:3},topspeed:{value:30,unit:"mph"}},
     items:fire?[weapon("Training launcher","launcher","2d8","12/24/48",2)]:[weapon("Grapple arm","grapple","2d8","",1)],effects:[]};
 }

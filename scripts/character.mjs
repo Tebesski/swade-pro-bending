@@ -1,6 +1,6 @@
 import {ID, POWERS, EFFECTS, background, dialog, enabled, escape, effects, flag, hasEdge, packDoc, queue, report, requireOwner, selectedActor, skill, slug} from "./shared.mjs";
 import {queueActor as queueCasting} from "../../swade-better-powers/scripts/spellcasting.mjs";
-import {elementalPowerName, legacyWeaponName, legacyWeaponUpdate, weaponKit} from "./bending-data.mjs";
+import {elementalPowerName, legacyWeaponName, legacyWeaponUpdate, naturalWeaponUpdate, weaponKit} from "./bending-data.mjs";
 
 const serial = queue();
 const settingStance = new Set();
@@ -259,6 +259,8 @@ export function installCharacter() {
     if (nation) void nationSkills(nation).catch(report);
   });
   Hooks.on("preCreateItem", (item,_data,_options,userId) => {
+    const natural = naturalWeaponUpdate(item);
+    if (natural) item.updateSource(natural);
     if (userId!==game.user.id || !item.actor) return;
     if (flag(item,"background") && background(item.actor)) {
       ui.notifications.warn("A character can have only one Avatar Bending Background.");
@@ -273,6 +275,17 @@ export function installCharacter() {
     if (flag(item,"technique")) item.updateSource({
       "system.arcane":castingArcane(item.actor),"system.actions.trait":flag(item,"key")==="knacks" ? "" : "Bending"
     });
+  });
+  Hooks.on("preCreateActor",actor=>{
+    const items = actor.toObject().items;
+    let changed = false;
+    for (const item of items) {
+      if (!naturalWeaponUpdate(item)) continue;
+      item.flags ??= {};
+      item.flags["swade-grid-inventory"] = {...item.flags["swade-grid-inventory"],naturalWeapon:true,placement:null};
+      changed = true;
+    }
+    if (changed) actor.updateSource({items});
   });
   Hooks.on("swadeBetterEffectsAutomaticFlags", (doc,tags) => {
     if (flag(doc,"weapon") || flag(doc,"technique")) {

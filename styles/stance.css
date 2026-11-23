@@ -9,3 +9,22 @@
   font-size: var(--font-size-11);
   opacity: 0.85;
 }
+
+.avatar-healing-review .form-footer {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.avatar-healing-review .form-footer button {
+  grid-column: span 2;
+}
+
+.avatar-healing-review .form-footer .avatar-healing-override {
+  grid-column: span 3;
+}
+
+.avatar-healing-review button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}

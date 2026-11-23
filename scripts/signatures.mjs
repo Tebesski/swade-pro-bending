@@ -67,7 +67,8 @@ export async function signatureAction(item, command = "use") {
     }
     const [effect] = await actor.createEmbeddedDocuments("ActiveEffect",[source]);
     try {
-      if (trait && !await actor.rollSkill(trait.id,{flavour:item.name})) return;
+      if (trait && !await actor.rollSkill(trait.id,{flavour:item.name,item,
+        effectFlags:move.support?["signature-move","support"]:["signature-move"]})) return;
       await item.setFlag(ID,"signatureUsed",true);
       if (!trait) ui.notifications.info(`${item.name} is active on ${actor.name}. End the effect after the listed use.`);
     } catch (error) {

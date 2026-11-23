@@ -34,3 +34,4 @@ export function queue() {
     return next;
   };
 }
+export const contentQueue=queue();

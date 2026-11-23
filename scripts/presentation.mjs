@@ -1,5 +1,5 @@
 import {ID, EFFECTS, background, flag} from "./shared.mjs";
-import {legacyWeaponUpdate, weaponEffectUpdate} from "./bending-data.mjs";
+import {legacyWeaponUpdate, naturalWeaponUpdate, weaponEffectUpdate} from "./bending-data.mjs";
 import {migrateSignatureActions} from "./signatures.mjs";
 import {migrateRosterText} from "./roster.mjs";
 
@@ -34,17 +34,12 @@ function cleanTechniqueDescription(description) {
   return changed ? content.innerHTML : description;
 }
 
-function hideTechniqueSummaries(app, root) {
-  if (flag(app.document, "technique")) {
-    root.querySelectorAll(".sbs-power-modifier-summary").forEach(node => node.remove());
-  }
+function hideKnackRollControls(app, root) {
   const actor = app.actor ?? app.document;
   if (actor?.documentName !== "Actor") return;
   for (const row of root.querySelectorAll("[data-item-id]")) {
     const item = actor.items.get(row.dataset.itemId);
-    if (!flag(item, "technique")) continue;
-    row.querySelectorAll(".sbs-power-modifier-summary").forEach(node => node.remove());
-    if (flag(item,"key") === "knacks") {
+    if (flag(item,"technique") && flag(item,"key") === "knacks") {
       row.querySelectorAll(".sbs-power-card, [data-action='formula'], [data-action='tableAction']").forEach(node => node.remove());
     }
   }
@@ -55,13 +50,11 @@ function cleanChatCard(message,root) {
   if (!card) return;
   let item;
   try { item = foundry.utils.fromUuidSync(card.dataset.itemUuid); } catch { return; }
-  if (!flag(item,"technique")) return;
-  card.querySelectorAll(".sbs-power-modifier-summary").forEach(node=>node.remove());
-  if (flag(item,"key")==="knacks") card.querySelectorAll(".trait-rolls, .macro-actions, [data-action='tableAction']").forEach(node=>node.remove());
+  if (flag(item,"technique") && flag(item,"key")==="knacks") card.querySelectorAll(".trait-rolls, .macro-actions, [data-action='tableAction']").forEach(node=>node.remove());
 }
 
 export function installPresentation() {
-  // These hooks run after Better Powers' hooks. Its standalone Mod/Raise tab keeps the actual modifier definitions.
+  // Keep imported technique rules text separate from the modifier definitions rendered by Better Powers.
   Hooks.on("preCreateItem", item => {
     if (!flag(item,"technique")) return;
     const description = item._source.system.description;
@@ -80,9 +73,7 @@ export function installPresentation() {
       if (changed.system?.actions) delete changed.system.actions.trait;
     }
   });
-  Hooks.on("renderApplicationV2", (app, root) => {
-    hideTechniqueSummaries(app,root);
-  });
+  Hooks.on("renderApplicationV2", hideKnackRollControls);
   Hooks.on("renderChatMessageHTML",cleanChatCard);
 }
 
@@ -95,7 +86,16 @@ export async function migrateAvatarContent() {
   }
   await migrateSignatureActions(actors.values());
   await migrateRosterText(actors.values());
+  for (const item of game.items) {
+    const update = naturalWeaponUpdate(item);
+    if (update) await item.update(update);
+  }
   for (const actor of actors.values()) {
+    const natural = [...actor.items].flatMap(item=>{
+      const update = naturalWeaponUpdate(item);
+      return update ? [{_id:item.id,...update}] : [];
+    });
+    if (natural.length) await actor.updateEmbeddedDocuments("Item",natural);
     const element = flag(background(actor),"background");
     const legacy = (actor.itemTypes.weapon ?? []).flatMap(item=>{
       const update = legacyWeaponUpdate(item,element);
@@ -142,7 +142,7 @@ export async function migrateAvatarContent() {
       update["system.description"] = cleanTechniqueDescription(item._source.system.description);
       if (flag(item,"key")==="knacks") {
         update["system.actions.trait"] = "";
-        if (item.system.actions.additional.tableAction?.name==="Use Knack") update["system.actions.additional.-=tableAction"] = null;
+        if (item.system.actions.additional.tableAction?.name==="Use Knack") update["system.actions.additional.tableAction"] = new foundry.data.operators.ForcedDeletion();
       }
     }
     for (const fresh of source.effects) {
@@ -182,7 +182,7 @@ async function migrateEffect(effect, source) {
     update["system.changes"] = next.system.changes;
     update[`flags.${EFFECTS}.conditions`] = next.flags[EFFECTS].conditions;
     update[`flags.${EFFECTS}.tags`] = [...new Set([...(old?.tags ?? []),...next.flags[EFFECTS].tags])];
-    if (old?.rules) update[`flags.${EFFECTS}.-=rules`] = null;
+    if (old?.rules) update[`flags.${EFFECTS}.rules`] = new foundry.data.operators.ForcedDeletion();
   }
   await effect.update(update);
 }
