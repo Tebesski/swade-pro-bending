@@ -1,4 +1,4 @@
-import {ID,EFFECTS,TEMPLATES,dialog,escape,flag,selectedActor,requireOwner,report,contentQueue} from "./shared.mjs";
+import {ID,EFFECTS,TEMPLATES,dialog,escape,flag,macroTarget,packDoc,selectedActor,requireOwner,report,contentQueue} from "./shared.mjs";
 import {changeSignature,normalizeFlags} from "../../swade-better-effects/scripts/rules.mjs";
 
 const KEY="advanced-elemental-manipulation";
@@ -60,10 +60,9 @@ export async function elementalProtection(caster=selectedActor()) {
 }
 export async function areaProtection(caster=selectedActor()) {
   requireOwner(caster);
-  const item=caster.itemTypes.power.find(item=>flag(item,"key")===KEY);
-  if(!item)throw new Error("This actor needs Advanced Elemental Manipulation.");
-  if(!flag(item,"advancedRevision"))await item.update(advancedUpdate());
-  return game.modules.get(TEMPLATES).api.placeTemplate(item);
+  const owned=caster.itemTypes.power.find(item=>flag(item,"key")===KEY);
+  if(owned&&!flag(owned,"advancedRevision"))await owned.update(advancedUpdate());
+  return game.modules.get(TEMPLATES).api.placeTemplate(owned ?? await packDoc("techniques",KEY));
 }
 export async function elementalSurf(caster=selectedActor()) {
   requireOwner(caster);
@@ -74,9 +73,7 @@ export async function elementalSurf(caster=selectedActor()) {
 }
 export function installAdvancedManipulation() {
   CONFIG.queries[`${ID}.elementalProtection`]=async({casterUuid,tokenUuid,flags},{user})=>{
-    const caster=await fromUuid(casterUuid),token=await fromUuid(tokenUuid);
-    if(!game.user.isActiveGM||!caster?.testUserPermission(user,"OWNER")||token?.documentName!=="Token"||token.hidden||
-      !caster.itemTypes.power.some(item=>flag(item,"key")===KEY))throw new Error("Choose a caster and visible target.");
+    const {caster,token}=await macroTarget(casterUuid,tokenUuid,user);
     await applyProtection(token.actor,protectionEffect(flags),caster.uuid);return true;
   };
   Hooks.on("preCreateItem",item=>{if(flag(item,"key")===KEY&&!flag(item,"advancedRevision"))item.updateSource(advancedUpdate());});

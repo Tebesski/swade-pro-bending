@@ -24,6 +24,13 @@ export const requireOwner = actor => {
   if (!actor?.isOwner || !actor.system.attributes) throw new Error("Select a character or NPC you can edit.");
   return actor;
 };
+export async function macroTarget(casterUuid, tokenUuid, user) {
+  const [caster, token] = await Promise.all([fromUuid(casterUuid), fromUuid(tokenUuid)]);
+  if (!game.user.isActiveGM || caster?.documentName !== "Actor" || !caster.system.attributes ||
+      !caster.testUserPermission(user, "OWNER") || token?.documentName !== "Token" ||
+      token.hidden || !token.actor?.system.attributes) throw new Error("Choose a caster you own and a visible target.");
+  return {caster, token};
+}
 export const post = (actor, content) => ChatMessage.create({speaker: ChatMessage.getSpeaker({actor}), content});
 export function queue() {
   const pending = new Map();

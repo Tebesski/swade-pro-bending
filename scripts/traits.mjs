@@ -1,4 +1,4 @@
-import {ID, EFFECTS, dialog, escape, flag, queue, requireOwner, selectedActor} from "./shared.mjs";
+import {ID, EFFECTS, dialog, escape, flag, macroTarget, queue, requireOwner, selectedActor} from "./shared.mjs";
 import {TRAIT_MACRO_UUID, traitAction, traitEffect} from "./trait-effects.mjs";
 
 const serial = queue();
@@ -106,12 +106,7 @@ export function installTraitEffects() {
     return shouldApply.call(this,change,options);
   };
   CONFIG.queries[query] = async ({casterUuid,tokenUuid,options},{user})=>{
-    if (!game.user.isActiveGM) throw new Error("A GM must apply this effect.");
-    const caster = await fromUuid(casterUuid), token = await fromUuid(tokenUuid);
-    if (!caster?.testUserPermission(user,"OWNER") || token?.documentName!=="Token" || token.hidden ||
-      !token.actor?.system.attributes || !caster.itemTypes.power.some(item=>flag(item,"key")==="boost-lower-trait")) {
-      throw new Error("The caster needs Boost/Lower Trait and a visible target.");
-    }
+    const {token} = await macroTarget(casterUuid,tokenUuid,user);
     await applyTraitEffect(token.actor,options);
     return true;
   };

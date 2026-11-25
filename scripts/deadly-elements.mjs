@@ -120,8 +120,6 @@ export async function applyDeadlyElements(actor, options = {}) {
    requireOwner(actor)
    return serial(actor.uuid, async () => {
       const weapons = [...actor.itemTypes.weapon].filter(isElementalWeapon)
-      if (!weapons.length)
-         throw new Error("This actor has no elemental Hurl or Assault weapons.")
       const previous = actor.effects.filter(isDeadly)
       const before = new Set(actor.effects.map((effect) => effect.id))
       const data = deadlyEffect(weapons, options)

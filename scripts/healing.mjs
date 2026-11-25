@@ -1,4 +1,4 @@
-import {ID, POWERS, dialog, escape, flag, post, queue, report, requireOwner, selectedActor, skill, slug} from "./shared.mjs";
+import {ID, EFFECTS, POWERS, dialog, escape, flag, packDoc, post, queue, report, requireOwner, selectedActor, skill, slug} from "./shared.mjs";
 import {isCritical, needsConfirmation} from "./combat.mjs";
 import {treatmentOutcome} from "./rules.mjs";
 
@@ -188,12 +188,12 @@ export async function heal(mode, actor=selectedActor(), targets=[...game.user.ta
   if (mode!=="mundane" && patients.length!==1) throw new Error("Waterbending treats one patient at a time.");
   const max = Math.floor(actor.system.attributes.smarts.die.sides/2);
   if (mode==="mundane" && patients.length>max && !actor.itemTypes.edge?.some(e=>slug(e.name)==="triage")) throw new Error(`This medic can treat up to ${max} patients concurrently.`);
-  const item = mode==="mundane"?null:actor.itemTypes.power?.find(p=>flag(p,"key")===(mode==="water"?"healing":"accelerated-recovery"));
-  if (mode!=="mundane" && !item) throw new Error(`The caster needs the ${mode==="water"?"Healing":"Accelerated Recovery"} Technique.`);
+  const key = mode==="water"?"healing":"accelerated-recovery";
+  const owned = mode==="mundane"?null:actor.itemTypes.power?.find(p=>flag(p,"key")===key);
   if (patients.some(p=>wounds(p)===0)) throw new Error("Each patient must have at least one Wound.");
   for (const patient of patients) checkImmunity(patient,mode);
-  if (activationMessage && (!activationMessage.isContentVisible || activationMessage.speakerActor?.uuid!==actor.uuid ||
-    activationItemUuid(activationMessage)!==item?.uuid)) throw new Error("Choose this actor's Technique activation roll.");
+  if (activationMessage && (!owned || !activationMessage.isContentVisible || activationMessage.speakerActor?.uuid!==actor.uuid ||
+    activationItemUuid(activationMessage)!==owned.uuid)) throw new Error("Choose this actor's Technique activation roll.");
   const activation = activationMessage?.rolls?.find(roll=>!roll.isCritFailConfirmationRoll);
   if (activationMessage && !Number.isFinite(activation?.total)) throw new Error("This message has no activation roll.");
   const castData = activationMessage?.flags[POWERS]?.powerCast;
@@ -213,6 +213,7 @@ export async function heal(mode, actor=selectedActor(), targets=[...game.user.ta
       return;
     }
     const bending = skill(actor,"Bending");
+    const item = owned ?? await packDoc("techniques",key);
     const additionalMods = [];
     const self = actor.uuid===patient.uuid;
     if (self) additionalMods.push(mod("Self-treatment",-2));
@@ -220,16 +221,23 @@ export async function heal(mode, actor=selectedActor(), targets=[...game.user.ta
     if (size) additionalMods.push(mod("Healing patient Size",-size));
     const extended = config.has("extended");
     const pp = item.system.pp+2*(speed+intensive+Number(extended));
-    const noPP = game.modules.get("swade-better-powers").api.usesNoPowerPoints(item);
-    if (!activation && !noPP && Number(item.powerPointObject?.value ?? 0) < pp) throw new Error("The caster does not have enough Power Points for this treatment.");
-    const options = {item,sbsPowerCost:pp,avatarHealingHandled:true,avatarNoMartial:true,additionalMods,flavour:`${item.name} · ${patient.name}`};
-    if (!bending) throw new Error("The caster needs the Bending skill.");
+    const entries = Object.values(actor.flags?.[POWERS]?.spellcastingEntries ?? {});
+    const entry = entries.find(e=>slug(e.arcane)==="waterbending") ?? entries.find(e=>slug(e.trait)==="bending");
+    const noPP = owned ? game.modules.get(POWERS).api.usesNoPowerPoints(owned) :
+      entry ? (entry.noPowerPoints ?? game.settings.get("swade","noPowerPoints")) : true;
+    const pool = (owned ? owned.system.arcane : entry?.arcane) || "general";
+    if (!activation && !noPP && Number(actor.system.powerPoints?.[pool]?.value ?? 0)<pp) throw new Error("The caster does not have enough Power Points for this treatment.");
+    const options = {avatarHealingHandled:true,avatarNoMartial:true,additionalMods,flavour:`${item.name} · ${patient.name}`};
+    if (owned) Object.assign(options,{item:owned,sbsPowerCost:pp});
+    else {
+      options.effectFlags = item.flags?.[EFFECTS]?.tags ?? [];
+      if (noPP) additionalMods.push(mod("No Power Points",-Math.ceil(pp/2)));
+    }
     const minutes = mode==="water"?[20,15,10][speed]*wounds(patient):[120,60,30][speed];
     if (mode==="recovery" && !await confirmTime(mode,minutes)) return;
-    const roll = activation ?? await actor.rollSkill(bending.id,options);
+    const roll = activation ?? await (bending ? actor.rollSkill(bending.id,options) : actor.makeUnskilledAttempt(options));
     if (!roll) return;
     if (!activation && !noPP) {
-      const pool = item.system.arcane || "general";
       const points = actor.system.powerPoints[pool];
       if (points) await actor.update({[`system.powerPoints.${pool}.value`]:Math.max(0,points.value-pp)});
     }

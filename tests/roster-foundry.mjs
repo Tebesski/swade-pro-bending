@@ -44,6 +44,8 @@ try {
           continue;
         }
         const rating = actorRating(template), flags = template.flags[id];
+        const minimumBending = 8+2*Math.floor(template.system.advances.value/4);
+        check(template.items.getName("Bending")?.system.die.sides>=minimumBending,template.name+" Bending die");
         check(rating.rated && rating.coverage==="Partial" && !rating.manual,template.name+" rating");
         ratings.push({name:template.name,advances:template.system.advances.value,cr:rating.cr,strength:rating.strength});
         check(template.itemTypes.power.every(p=>powers.usesNoPowerPoints(p)),template.name+" casting");

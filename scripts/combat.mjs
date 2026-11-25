@@ -161,8 +161,8 @@ export async function reviewLatest(actor=selectedActor()) {
 export async function sustainBubble(actor=selectedActor()) {
   requireOwner(actor);
   const bending = skill(actor,"Bending");
-  if (!bending || !actor.itemTypes.power?.some(i=>flag(i,"key")==="water-bubble")) throw new Error("This actor needs Water Bubble and the Bending skill.");
-  return actor.rollSkill(bending.id,{avatarNoBacklash:true,flavour:"Sustain Water Bubble"});
+  const options = {avatarNoBacklash:true,flavour:"Sustain Water Bubble"};
+  return bending ? actor.rollSkill(bending.id,options) : actor.makeUnskilledAttempt(options);
 }
 
 function button(group,label,action) {

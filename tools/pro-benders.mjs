@@ -158,6 +158,7 @@ export function buildProBenders(packs, stable, uuid) {
     const secondary = Math.max(4,primary-2);
     const skills = {Fighting:secondary,Shooting:secondary,Bending:secondary,Athletics:secondary,
       Notice:draft.skills.Notice.sides,...Object.fromEntries(primarySkills.map(skill=>[skill,primary])),...data.skills};
+    skills.Bending = Math.max(skills.Bending, 8 + 2 * level);
     draft.attributes.vigor = die(data.vigor ?? Math.min(10,(role==="anchor"?8:6)+2*level));
     draft.attributes.strength = die(data.strength ?? Math.min(10,(role==="anchor"?8:6)+2*Number(level===2)));
     draft.attributes.spirit = die(data.spirit ?? Math.min(10,(["controller","medic"].includes(role)?8:6)+2*Number(level>0)));

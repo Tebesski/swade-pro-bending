@@ -3,11 +3,27 @@ import {test} from "node:test";
 import {shiftTrait,traitEffect} from "../scripts/trait-effects.mjs";
 
 test("Trait steps support d4, d12+, and separate fixed roll modifiers",()=>{
+  assert.deepEqual(shiftTrait({sides:12,modifier:0},1),{sides:12,modifier:1});
+  assert.deepEqual(shiftTrait({sides:12,modifier:1},1),{sides:12,modifier:2});
+  assert.deepEqual(shiftTrait({sides:12,modifier:1},2),{sides:12,modifier:3});
   assert.deepEqual(shiftTrait({sides:12,modifier:0},2),{sides:12,modifier:2});
   assert.deepEqual(shiftTrait({sides:12,modifier:2},-1),{sides:12,modifier:1});
   assert.deepEqual(shiftTrait({sides:12,modifier:1},-2),{sides:10,modifier:0});
   assert.deepEqual(shiftTrait({sides:6,modifier:2},1),{sides:8,modifier:2});
   assert.deepEqual(shiftTrait({sides:4,modifier:0},-2),{sides:4,modifier:0});
+});
+
+test("Boost effects increase attribute and skill modifiers above d12",()=>{
+  for (const trait of [{type:"attribute",key:"agility",name:"Agility"},{type:"skill",id:"BendingId",key:"bending",name:"Bending"}]) {
+    for (const modifier of [0,1,2]) for (const raised of [false,true]) {
+      const effect=traitEffect({trait,die:{sides:12,modifier},raised});
+      assert.equal(effect.system.changes.length,1);
+      const change=effect.system.changes[0];
+      assert.ok(change.key.endsWith("die.modifier") || change.key.endsWith("die.modifier]"));
+      assert.equal(change.type,"subtract");
+      assert.equal(modifier-Number(change.value),modifier+(raised?2:1));
+    }
+  }
 });
 
 test("Raised Strong Lower uses Better Effects recovery and two exclusive penalty stages",()=>{

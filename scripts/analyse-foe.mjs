@@ -1,4 +1,4 @@
-import {ID,EFFECTS,dialog,escape,flag,requireOwner,selectedActor,contentQueue,report,queue} from "./shared.mjs";
+import {ID,EFFECTS,dialog,escape,flag,macroTarget,requireOwner,selectedActor,contentQueue,report,queue} from "./shared.mjs";
 import {changeSignature} from "../../swade-better-effects/scripts/rules.mjs";
 export const ANALYSE_ID="b3a890c4e7324d19";
 const ICON="icons/svg/eye.svg",KEY="analyse-foe";
@@ -53,9 +53,7 @@ export async function analyseFoe(caster=selectedActor()) {
 }
 export function installAnalyseFoe() {
   CONFIG.queries[`${ID}.analyseFoe`]=async({casterUuid,tokenUuid,extended},{user})=>{
-    const caster=await fromUuid(casterUuid),token=await fromUuid(tokenUuid);
-    if(!game.user.isActiveGM||!caster?.testUserPermission(user,"OWNER")||token?.documentName!=="Token"||token.hidden||
-      !caster.itemTypes.power.some(item=>flag(item,"key")===KEY))throw new Error("Choose a caster and visible target.");
+    const {caster,token}=await macroTarget(casterUuid,tokenUuid,user);
     await applyAnalysis(caster,token,!!extended);return true;
   };
   Hooks.on("swadeBetterEffectsTargetFlags",(_context,token,actor,_item,flags)=>{

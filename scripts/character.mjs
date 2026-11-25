@@ -219,6 +219,22 @@ export async function setup(actor = selectedActor()) {
   if (choice==="choose") return chooseGrants(actor);
 }
 
+// SWADE item shortcuts store a name. When the actor has no matching Technique,
+// run the same standalone macro that a GM or player can drag from the macro pack.
+const techniqueShortcuts = new Map([
+  ["boost-lower-trait","boost-lower-trait"], ["deadly-elements","deadly-elements"],
+  ["elemental-maneuver","elemental-maneuver"], ["analyse-foe","analyse-foe"], ["awareness","awareness"],
+  ["healing","water-healing"], ["waterbending-healing","water-healing"], ["mundane-healing","mundane-healing"],
+  ["accelerated-recovery","accelerated-recovery"], ["sustain-water-bubble","sustain-bubble"],
+  ["elemental-protection","advanced-protection"], ["area-protection","advanced-area"], ["elemental-surf","advanced-surf"]
+]);
+async function advancedShortcut(actor) {
+  const choice = await dialog().wait({window:{title:"Advanced Elemental Manipulation"},buttons:[
+    {action:"advanced-protection",label:"Elemental Protection"},
+    {action:"advanced-area",label:"Area Protection"},{action:"advanced-surf",label:"Elemental Surf"}
+  ],rejectClose:false});
+  if (choice) return (await packDoc("macros",choice)).execute({actor});
+}
 export function installCharacter() {
   // SWADE generates ordinary item macros when a stance template is dropped on
   // the hotbar. Route those shortcuts to the stance effect on the chosen actor.
@@ -233,7 +249,7 @@ export function installCharacter() {
     const stance = stanceNames.get(identifier);
     if (stance) return changeStance(selectedActor(), stance).catch(report);
     const speaker = ChatMessage.getSpeaker();
-    const actor = (speaker.token && game.actors.tokens[speaker.token]) || game.actors.get(speaker.actor);
+    const actor = (speaker.token && game.actors.tokens[speaker.token]) || game.actors.get(speaker.actor) || selectedActor();
     const attack = legacyAttacks.get(identifier);
     if (attack) {
       const weapon = actor?.itemTypes.weapon?.find(item=>flag(item,"weapon")===attack.kind && !!flag(item,"off")===attack.off);
@@ -243,6 +259,14 @@ export function installCharacter() {
     if (element && !actor.items.getName(identifier)) {
       const name = elementalPowerName(identifier,element);
       if (actor.itemTypes.power?.some(item=>item.name===name)) return rollItemMacro.call(this,name,...args);
+    }
+    if (actor?.isOwner && typeof identifier==="string" && !actor.items.getName(identifier)) {
+      const key = slug(identifier.replace(/\s*\((?:earth|fire|water)\)$/i,""));
+      const owned = actor.itemTypes.power?.find(p=>flag(p,"key")===key);
+      if (owned) return rollItemMacro.call(this,owned.name,...args);
+      if (key==="advanced-elemental-manipulation") return advancedShortcut(actor).catch(report);
+      const macroKey = techniqueShortcuts.get(key);
+      if (macroKey) return packDoc("macros",macroKey).then(macro=>macro.execute({actor})).catch(report);
     }
     return rollItemMacro.call(this,identifier,...args);
   };

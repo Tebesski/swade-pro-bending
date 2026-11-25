@@ -66,6 +66,30 @@ function setup() {
   return medic;
 }
 
+test("Standalone water treatments use the compendium and respect the caster's casting entry",async()=>{
+  for (const [mode,key,pp] of [["recovery","accelerated-recovery",2],["water","healing",4]]) {
+    const medic=setup(), target=patient();
+    const template={_id:key,flags:{[ID]:{key},"swade-better-effects":{tags:["water"]}},system:{pp},name:key};
+    game.packs=new Map([[ID+".techniques",{index:[template],getIndex:async()=>{},getDocument:async()=>template}]]);
+    medic.itemTypes.power=[];
+    medic.itemTypes.skill=[];
+    const rolls=[];
+    medic.makeUnskilledAttempt=async options=>{rolls.push(options);return state.cast;};
+    await heal(mode,medic,[target]);
+    assert.equal(rolls[0].item,undefined);
+    assert.deepEqual(rolls[0].effectFlags,["water"]);
+    assert.deepEqual(rolls[0].additionalMods,[{label:"No Power Points",value:-pp/2}]);
+    assert.equal(target.system.wounds.value,2);
+    assert.equal(medic.itemTypes.power.length,0);
+    medic.flags["swade-better-powers"]={spellcastingEntries:{water:{arcane:"Waterbending",trait:"Bending",noPowerPoints:false}}};
+    medic.system.powerPoints={Waterbending:{value:pp}};
+    const paidPatient=patient();
+    await heal(mode,medic,[paidPatient]);
+    assert.equal(medic.system.powerPoints.Waterbending.value,0);
+    await assert.rejects(heal(mode,medic,[patient()]),/enough Power Points/);
+  }
+});
+
 test("Accelerated Recovery uses only its target effect, including expiry and manual controls",async()=>{
   const medic=setup(), target=patient();
   state.natural={total:2};

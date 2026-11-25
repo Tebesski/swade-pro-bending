@@ -12912,7 +12912,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -14292,7 +14292,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -15602,7 +15602,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -16955,7 +16955,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -19720,7 +19720,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -21105,7 +21105,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -22492,7 +22492,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -24031,7 +24031,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -26703,7 +26703,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -28075,7 +28075,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -29460,7 +29460,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -30796,7 +30796,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -33431,7 +33431,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -35063,7 +35063,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -36626,7 +36626,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -39621,7 +39621,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -41148,7 +41148,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -42640,7 +42640,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -44181,7 +44181,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -45552,7 +45552,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -46933,7 +46933,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -50450,7 +50450,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -52360,7 +52360,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -54019,7 +54019,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -55755,7 +55755,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -58935,7 +58935,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -60539,7 +60539,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -61977,7 +61977,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -63792,7 +63792,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -65213,7 +65213,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -66896,7 +66896,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -70519,7 +70519,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -74117,7 +74117,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -75697,7 +75697,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -77301,7 +77301,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -79021,7 +79021,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -82316,7 +82316,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -83887,7 +83887,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -85974,7 +85974,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -87754,7 +87754,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -90013,7 +90013,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -93013,7 +93013,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -96193,7 +96193,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -99710,7 +99710,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -101584,7 +101584,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -104966,7 +104966,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -106505,7 +106505,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -109526,7 +109526,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -111296,7 +111296,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -112904,7 +112904,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -116250,7 +116250,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -119608,7 +119608,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -123156,7 +123156,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -124721,7 +124721,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -126245,7 +126245,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -129644,7 +129644,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -131393,7 +131393,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -132816,7 +132816,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -134623,7 +134623,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -135955,7 +135955,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -139123,7 +139123,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -140345,7 +140345,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -143441,7 +143441,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -144694,7 +144694,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -147480,7 +147480,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -149241,7 +149241,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -150649,7 +150649,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -152155,7 +152155,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -153686,7 +153686,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 10,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -155134,7 +155134,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -156315,7 +156315,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -157783,7 +157783,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -159291,7 +159291,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -160712,7 +160712,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -162133,7 +162133,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 12,
               "modifier": 0
             }
           },
@@ -163720,7 +163720,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -164832,7 +164832,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -166334,7 +166334,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -169292,7 +169292,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -170476,7 +170476,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -173283,7 +173283,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 4,
+              "sides": 8,
               "modifier": 0
             }
           },
@@ -174604,7 +174604,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 6,
+              "sides": 10,
               "modifier": 0
             }
           },
@@ -176000,7 +176000,7 @@
             "description": "<p>Bending is the skill used to bend the elements and perform various bending Techniques, and is required for any Bending Background.</p>",
             "attribute": "spirit",
             "die": {
-              "sides": 8,
+              "sides": 10,
               "modifier": 0
             }
           },

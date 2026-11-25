@@ -1,4 +1,4 @@
-import {ID,EFFECTS,dialog,escape,flag,requireOwner,selectedActor,queue,post,report,contentQueue} from "./shared.mjs";
+import {ID,EFFECTS,dialog,escape,flag,macroTarget,requireOwner,selectedActor,queue,post,report,contentQueue} from "./shared.mjs";
 
 export const MANEUVER_MACRO_ID="6c53a29fb7c64a12";
 export const MANEUVER_ICON="icons/svg/falling.svg";
@@ -105,9 +105,7 @@ export async function elementalManeuver(caster=selectedActor(),message=null) {
 
 export function installManeuver() {
   CONFIG.queries[query]=async({casterUuid,tokenUuid,options},{user})=>{
-    const caster=await fromUuid(casterUuid),token=await fromUuid(tokenUuid);
-    if (!game.user.isActiveGM || !caster?.testUserPermission(user,"OWNER") || token?.documentName!=="Token" || token.hidden ||
-      !caster.itemTypes.power.some(item=>flag(item,"key")==="elemental-maneuver")) throw new Error("Choose a caster and visible target.");
+    const {caster,token}=await macroTarget(casterUuid,tokenUuid,user);
     await resolveManeuver(caster,token.actor,options); return true;
   };
   const update=item=>item.updateSource(itemUpdate(item));
